@@ -19,7 +19,7 @@
     height: 55vh;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 8%;
+    border-radius: 40px;
 }
 .loginButton {
     background-color: #fa8ba4;

@@ -1,0 +1,169 @@
+.registerNavbar {
+    display: flex;
+    padding: 20px 30px 0;
+    align-items: center;
+}
+
+.backButton {
+    flex-grow: 1;
+    font-size: 0.3rem;
+}
+.backButton > button {
+    font-size: 2rem;
+    color: #e94057;
+    border: 1px solid #e8e6ea;
+    padding: 0px 10px 3px;
+    border-radius: 15px;
+}
+
+.backButtonModal {
+    font-size: 0.3rem;
+}
+.backButtonModal > button {
+    font-size: 2rem;
+    color: #e94057;
+    border: 1px solid #e8e6ea;
+    padding: 0px 10px 3px;
+    border-radius: 15px;
+}
+
+.pageName {
+    font-size: 2.5rem;
+    flex-grow: 5;
+    text-align: center;
+    color: #33a2e5;
+}
+.space {
+    flex-grow: 4;
+}
+
+.registerform {
+    height: 88vh;
+    margin-top: 20px;
+    padding-top: 20px;
+    background-image: url('https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-size: cover;
+    border-radius: 40px;
+}
+
+.placeHolderfirstName {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 143px;
+    color: #33a2e5;
+}
+
+.placeHolderLastName {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 218px;
+    color: #33a2e5;
+}
+
+.placeHolderEmailRegister {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 292px;
+    color: #33a2e5;
+}
+
+.placeHolderPasswordRegister {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 366px;
+    color: #33a2e5;
+}
+
+.placeHolderConfirmPassword {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 440px;
+    color: #33a2e5;
+}
+
+.optionsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.options {
+    height: 80px;
+    width: 80px;
+    color: #f898a4;
+    background-color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.options:focus {
+    color: #33a2e5;
+}
+
+.skipButton {
+    color: #e94057;
+}
+
+.modalBody {
+    padding: 30px;
+}
+
+.modalSubmitButton {
+    margin-top: 250px;
+    /* background-color: #fa8ba4; */
+    border-radius: 10px;
+    color: #ffffff;
+    width: 100%;
+    height: 56px;
+    padding: 10px 0;
+    box-shadow: 0px 8px 14px -2px grey;
+}
+
+.optionSelect {
+    border-radius: 15px;
+    height: 50px;
+}
+
+.radioGroup > div > label {
+    text-align: start;
+    width: 100%;
+    height: 58px;
+    border-radius: 15px;
+}
+
+.radioGroup > div {
+    margin-bottom: 20px;
+}
+
+.previewProfileImg {
+    text-align: center;
+}
+
+.previewProfileImg > img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+select {
+    width: 100%;
+    height: 286px;
+}
+
+select > option {
+    border: 1px solid #e94057;
+    border-radius: 10px;
+    height: 58px;
+    margin-bottom: 10px;
+}
+
+select > option:focus {
+    border: 1px solid #e94057;
+    border-radius: 10px;
+}

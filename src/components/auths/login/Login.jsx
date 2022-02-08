@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
 
 function Login() {
-    // const classes = useStyles();
-
     return (
         <div className="login">
             <div className="logo">
@@ -19,7 +17,7 @@ function Login() {
                         <input
                             type="email"
                             className="form-control inputLogin"
-                            id="exampleFormControlInput1"
+                            id="emailInput"
                             placeholder="E-mail"
                         />
                         <i className="bi bi-envelope placeHolderEmail"></i>
@@ -28,7 +26,7 @@ function Login() {
                         <input
                             type="password"
                             className="form-control inputLogin"
-                            id="exampleFormControlInput1"
+                            id="passwordInput"
                             placeholder="Password "
                         />
                     </div>
@@ -53,7 +51,7 @@ function Login() {
                         Login
                     </button>
                     <div className="signUpLink">
-                        <a href="#">Sign up for Gift</a>
+                        <Link to={'/register'}>Sign up for Gift</Link>
                     </div>
                 </form>
             </div>

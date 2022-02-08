@@ -1,10 +1,10 @@
 import './App.css';
-import Login from './components/auths/login/Login';
+import RouteConfig from './routes/RouteConfig';
 
 function App() {
     return (
         <>
-            <Login />
+            <RouteConfig />
         </>
     );
 }
