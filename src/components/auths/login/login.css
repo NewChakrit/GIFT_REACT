@@ -1,0 +1,75 @@
+.login {
+    padding-top: 40px;
+    /* text-align: center; */
+}
+
+.logo {
+    text-align: center;
+    height: 35vh;
+}
+.logo > img {
+    width: 70vw;
+    height: auto;
+}
+
+.loginForm {
+    margin-top: 10px;
+    padding-top: 20px;
+    background-image: url('https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg');
+    height: 55vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8%;
+}
+.loginButton {
+    background-color: #fa8ba4;
+    border-radius: 10px;
+    color: #ffffff;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0px 8px 14px -2px grey;
+}
+
+.inputLogin {
+    height: 50px;
+    border-radius: 10px;
+}
+
+.placeHolderEmail {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 387px;
+    color: #33a2e5;
+}
+
+.placeHolderPassword {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 477px;
+    color: #33a2e5;
+}
+
+.rememberme {
+    color: #ffffff;
+}
+
+.form-control::placeholder {
+    color: #33a2e5;
+    opacity: 1;
+}
+
+.signUpLink {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.signUpLink > a {
+    text-decoration: none;
+    color: #fa8ba4;
+}
+
+a:hover {
+    color: #33a2e5;
+}
