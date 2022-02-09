@@ -64,11 +64,18 @@
     color: #33a2e5;
 }
 
-.placeHolderEmailRegister {
+.placeHolderUserName {
     position: absolute;
     font-size: 1.5rem;
     right: 65px;
     top: 292px;
+    color: #33a2e5;
+}
+.placeHolderEmailRegister {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 365px;
     color: #33a2e5;
 }
 
@@ -76,7 +83,7 @@
     position: absolute;
     font-size: 1.5rem;
     right: 65px;
-    top: 366px;
+    top: 441px;
     color: #33a2e5;
 }
 
@@ -84,7 +91,7 @@
     position: absolute;
     font-size: 1.5rem;
     right: 65px;
-    top: 440px;
+    top: 514px;
     color: #33a2e5;
 }
 
@@ -149,6 +156,7 @@
     width: 250px;
     height: 250px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 select {

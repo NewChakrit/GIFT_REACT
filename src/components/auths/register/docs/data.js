@@ -1,0 +1,15 @@
+export const interestOption = [
+    { value: 'extreme', label: 'Extreme' },
+    { value: 'drink', label: 'Drink' },
+    { value: 'travelling', label: 'Travelling' },
+    { value: 'shopping', label: 'Shopping' },
+    { value: 'photography', label: 'Photography' },
+    { value: 'karaoke', label: 'Karaoke' },
+    { value: 'yoga', label: 'Yoga' },
+    { value: 'cooking', label: 'Cooking' },
+    { value: 'swimming', label: 'Swimming' },
+    { value: 'running', label: 'Running' },
+    { value: 'art', label: 'Art' },
+    { value: 'music', label: 'Music' },
+    { value: 'videogame', label: 'Video Game' },
+];

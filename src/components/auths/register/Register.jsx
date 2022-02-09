@@ -2,9 +2,73 @@ import React, { useRef } from 'react';
 import './register.css';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
+import axios from '../../../config/axios';
+import Select from 'react-select';
+import { interestOption } from './docs/data';
 
 function Register() {
+    const {
+        firstName,
+        setFirstName,
+        lastName,
+        setLastName,
+        username,
+        setUsername,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        confirmPassword,
+        setConfirmPassword,
+        imageUrl,
+        setImageUrl,
+        gender,
+        setGender,
+        interest,
+        setInterest,
+        loading,
+        setLoading,
+        handleSubmitRegister,
+    } = useContext(AuthContext);
     const inputEl = useRef();
+
+    const handleFileInputChange = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        if (!e.target.value) return;
+
+        const reader = new FileReader();
+
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onloadend = () => {
+            uploadImage(reader.result);
+        };
+        reader.onerror = () => {
+            console.error('AHHHHHHHH!!');
+        };
+    };
+
+    const uploadImage = async (base64EncodedImage) => {
+        try {
+            const res = await axios.post('/upload', {
+                data: base64EncodedImage,
+            });
+            setImageUrl(res.data.url);
+            setLoading(false);
+        } catch (err) {
+            alert('File size too large.');
+        }
+    };
+
+    const handleChange = (value) => {
+        const result = [];
+        value.map((item) => result.push(item.value));
+        console.log(result);
+        setInterest(result.toString());
+    };
+    console.log(interest);
 
     return (
         <div className="register">
@@ -21,13 +85,15 @@ function Register() {
 
             {/* Form */}
             <div className="registerform">
-                <form className="pt-3 p-5">
+                <form className="pt-3 p-5" onSubmit={handleSubmitRegister}>
                     <div className="mb-3 pb-2">
                         <input
                             type="text"
                             className="form-control inputLogin"
                             id="firstNameInput"
                             placeholder="FirstName"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
                         />
                         <i className="bi bi-person placeHolderfirstName"></i>
                     </div>
@@ -36,9 +102,22 @@ function Register() {
                             type="text"
                             className="form-control inputLogin"
                             id="lastNameInput"
-                            placeholder="Last Name "
+                            placeholder="Last Name"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
                         />
                         <i className="bi bi-person placeHolderLastName"></i>
+                    </div>
+                    <div className="mb-3 pb-2">
+                        <input
+                            type="text"
+                            className="form-control inputLogin"
+                            id="userNameInput"
+                            placeholder="User Name"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                        <i className="bi bi-person placeHolderUserName"></i>
                     </div>
                     <div className="mb-3 pb-2">
                         <input
@@ -46,6 +125,8 @@ function Register() {
                             className="form-control inputLogin"
                             id="emailInputRegister"
                             placeholder="Email "
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <i className="bi bi-envelope placeHolderEmailRegister"></i>
                     </div>
@@ -55,6 +136,8 @@ function Register() {
                             className="form-control inputLogin"
                             id="passwordInputRegister"
                             placeholder="Password "
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                         <i className="bi bi-eye-slash placeHolderPasswordRegister"></i>
                     </div>
@@ -64,6 +147,8 @@ function Register() {
                             className="form-control inputLogin"
                             id="confirmPasswordInput"
                             placeholder="Confirm Password "
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                         <i className="bi bi-eye-slash placeHolderConfirmPassword"></i>
                     </div>
@@ -128,6 +213,12 @@ function Register() {
                                                     name="options-outlined"
                                                     id="Woman"
                                                     autoComplete="off"
+                                                    value="female"
+                                                    onChange={(e) =>
+                                                        setGender(
+                                                            e.target.value
+                                                        )
+                                                    }
                                                 />
                                                 <label
                                                     className="btn btn-outline-danger"
@@ -143,6 +234,12 @@ function Register() {
                                                     name="options-outlined"
                                                     id="Man"
                                                     autoComplete="off"
+                                                    value="male"
+                                                    onChange={(e) =>
+                                                        setGender(
+                                                            e.target.value
+                                                        )
+                                                    }
                                                 />
                                                 <label
                                                     className="btn btn-outline-danger"
@@ -159,6 +256,12 @@ function Register() {
                                                     name="options-outlined"
                                                     id="Other"
                                                     autoComplete="off"
+                                                    value="nonbinary"
+                                                    onChange={(e) =>
+                                                        setGender(
+                                                            e.target.value
+                                                        )
+                                                    }
                                                 />
                                                 <label
                                                     className="btn btn-outline-danger"
@@ -241,10 +344,14 @@ function Register() {
                                                 type="file"
                                                 className="form-control Input d-none"
                                                 ref={inputEl}
-                                                // onChange={handleFileInputChange}
+                                                onChange={handleFileInputChange}
                                             />
                                             <img
-                                                src="https://res.cloudinary.com/dbtlgaii3/image/upload/v1644336153/Gift/Profile_avatar_placeholder_large_tafrpo.png"
+                                                src={
+                                                    imageUrl
+                                                        ? imageUrl
+                                                        : `https://res.cloudinary.com/dbtlgaii3/image/upload/v1644336153/Gift/Profile_avatar_placeholder_large_tafrpo.png`
+                                                }
                                                 alt="ProfileImg"
                                                 role="button"
                                                 onClick={() =>
@@ -319,16 +426,14 @@ function Register() {
                                             Interests
                                         </div>
 
-                                        <select
-                                            className="form-select interests"
-                                            multiple
-                                            aria-label="multiple select Interests"
-                                        >
-                                            <option value="0">0</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
+                                        <Select
+                                            isMulti
+                                            name="interest"
+                                            options={interestOption}
+                                            className="basic-multi-select"
+                                            classNamePrefix="select"
+                                            onChange={handleChange}
+                                        />
 
                                         <button
                                             type="button"

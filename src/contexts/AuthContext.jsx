@@ -19,6 +19,8 @@ function AuthContextProvider(props) {
     const [role, setRole] = useState(localStorageService.getRole());
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState('');
+    const [gender, setGender] = useState('');
+    const [interest, setInterest] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,7 +33,9 @@ function AuthContextProvider(props) {
     const handleSubmitLogin = async (e) => {
         try {
             e.preventDefault();
+            console.log(5555);
             const res = await axios.post('/auth/login', { email, password });
+
             login(res.data.token);
         } catch (err) {
             console.log(err);
@@ -55,7 +59,7 @@ function AuthContextProvider(props) {
     const handleSubmitRegister = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('/auth/register', {
+            const res = await axios.post('/auth/register', {
                 firstName,
                 lastName,
                 username,
@@ -64,7 +68,11 @@ function AuthContextProvider(props) {
                 confirmPassword,
                 profileUrl: imageUrl,
             });
-            // await axios.post(`/about/${res.data.id}`);
+
+            await axios.post(`/about/${res.data.myUser.id}`, {
+                gender,
+                interest,
+            });
             navigate('/login');
             setFirstName('');
             setLastName('');
@@ -106,6 +114,10 @@ function AuthContextProvider(props) {
                 setLoading,
                 imageUrl,
                 setImageUrl,
+                gender,
+                setGender,
+                interest,
+                setInterest,
             }}
         >
             {props.children}

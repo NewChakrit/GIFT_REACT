@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
 import './login.css';
 
 function Login() {
+    const { email, setEmail, password, setPassword, handleSubmitLogin } =
+        useContext(AuthContext);
+
     return (
         <div className="login">
             <div className="logo">
@@ -12,13 +16,15 @@ function Login() {
                 />
             </div>
             <div className="loginForm">
-                <form className="pt-3 p-5">
+                <form className="pt-3 p-5" onSubmit={handleSubmitLogin}>
                     <div className="mb-3 pb-4">
                         <input
                             type="email"
                             className="form-control inputLogin"
                             id="emailInput"
                             placeholder="E-mail"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <i className="bi bi-envelope placeHolderEmail"></i>
                     </div>
@@ -28,6 +34,8 @@ function Login() {
                             className="form-control inputLogin"
                             id="passwordInput"
                             placeholder="Password "
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div className="form-check pb-5">
