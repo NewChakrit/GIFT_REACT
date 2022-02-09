@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './register.css';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 function Register() {
+    const inputEl = useRef();
+
     return (
         <div className="register">
             {/* Navbar */}
@@ -77,9 +79,9 @@ function Register() {
                             Gender
                         </button>
                         <div
-                            class="modal fade"
+                            className="modal fade"
                             id="GenderModal"
-                            tabindex="-1"
+                            tabIndex="-1"
                             aria-labelledby="GenderModalLabel"
                             aria-hidden="true"
                         >
@@ -125,7 +127,7 @@ function Register() {
                                                     className="btn-check"
                                                     name="options-outlined"
                                                     id="Woman"
-                                                    autocomplete="off"
+                                                    autoComplete="off"
                                                 />
                                                 <label
                                                     className="btn btn-outline-danger"
@@ -140,7 +142,7 @@ function Register() {
                                                     className="btn-check"
                                                     name="options-outlined"
                                                     id="Man"
-                                                    autocomplete="off"
+                                                    autoComplete="off"
                                                 />
                                                 <label
                                                     className="btn btn-outline-danger"
@@ -156,7 +158,7 @@ function Register() {
                                                     className="btn-check"
                                                     name="options-outlined"
                                                     id="Other"
-                                                    autocomplete="off"
+                                                    autoComplete="off"
                                                 />
                                                 <label
                                                     className="btn btn-outline-danger"
@@ -192,9 +194,9 @@ function Register() {
                             Profile IMG
                         </button>
                         <div
-                            class="modal fade"
+                            className="modal fade"
                             id="ProfileImgModal"
-                            tabindex="-1"
+                            tabIndex="-1"
                             aria-labelledby="ProfileImgModal"
                             aria-hidden="true"
                         >
@@ -235,9 +237,19 @@ function Register() {
                                             Profile Image
                                         </div>
                                         <div className="previewProfileImg">
+                                            <input
+                                                type="file"
+                                                className="form-control Input d-none"
+                                                ref={inputEl}
+                                                // onChange={handleFileInputChange}
+                                            />
                                             <img
                                                 src="https://res.cloudinary.com/dbtlgaii3/image/upload/v1644336153/Gift/Profile_avatar_placeholder_large_tafrpo.png"
                                                 alt="ProfileImg"
+                                                role="button"
+                                                onClick={() =>
+                                                    inputEl.current.click()
+                                                }
                                             />
                                         </div>
 
@@ -266,9 +278,9 @@ function Register() {
                             Interests
                         </button>
                         <div
-                            class="modal fade"
+                            className="modal fade"
                             id="InterestModal"
-                            tabindex="-1"
+                            tabIndex="-1"
                             aria-labelledby="InterestModal"
                             aria-hidden="true"
                         >
