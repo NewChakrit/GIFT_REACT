@@ -1,0 +1,32 @@
+.emptyBox {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30%;
+  align-items: center;
+}
+
+.emptyBox img {
+  width: 70%;
+  height: 70%;
+}
+
+.emptyBox-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.messagePage {
+  position: fixed;
+  padding: 10px;
+  margin-top: 100px;
+  height: 100%;
+  background-image: url("https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 40px;
+  color: #33a2e5;
+  overflow-y: scroll;
+  padding-bottom: 200px;
+}

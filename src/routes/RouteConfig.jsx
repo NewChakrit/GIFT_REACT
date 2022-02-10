@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import Footer from '../components/layouts/mainlayout/footer/Footer';
 import Profile from '../pages/profile/Profile';
+import Messenger from '../pages/messenger/Messenger';
 import UserContextProvider from '../contexts/UserContext';
 
 const routes = {
@@ -19,13 +20,15 @@ const routes = {
     user: [
         { path: '/', element: <Home /> },
         { path: '/profile', element: <Profile /> },
+        { path: '/messenger', element: <Messenger /> },
         { path: '*', element: <Navigate to="/" replace={true} /> },
     ],
 };
+
 function RouteConfig() {
     const { user, role } = useContext(AuthContext);
 
-    if (role === 'user' && !user) {
+    if (role == 'user' && !user) {
         return (
             <div className="spinner-border text-primary" role="status">
                 <span className="visually-hidden">Loading...</span>
