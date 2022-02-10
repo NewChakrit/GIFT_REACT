@@ -6,6 +6,7 @@ import Login from '../components/auths/login/Login';
 import Register from '../components/auths/register/Register';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
+import Footer from '../components/layouts/mainlayout/footer/Footer';
 
 const routes = {
     guest: [
@@ -44,6 +45,7 @@ function RouteConfig() {
                             ))}
                         </Route>
                     </Routes>
+                    <Footer />
                 </>
             ) : (
                 <Routes>

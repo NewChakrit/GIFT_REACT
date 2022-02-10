@@ -5,16 +5,18 @@ import './home.css';
 function Home() {
     return (
         <div className="homePage">
-            <CardProfile />
-            <CardProfile />
-            <CardProfile />
-            <CardProfile />
-            <CardProfile />
-            <CardProfile />
-            <CardProfile />
-            <CardProfile />
-            <CardProfile />
-            <CardProfile />
+            <div className="cardContainer">
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
+                <CardProfile />
+            </div>
         </div>
     );
 }

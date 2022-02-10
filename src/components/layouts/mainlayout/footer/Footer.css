@@ -1,0 +1,18 @@
+.main-footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    height: 83px;
+    width: 100%;
+    padding-top: 15px;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    box-shadow: 0px -30px 24px 8px white;
+}
+
+.logo {
+    align-items: center;
+    color: #33a2e5;
+    height: 100%;
+    font-size: 1.5rem;
+}
