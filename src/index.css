@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Asap+Condensed");
 
 * {
   font-family: "Asap Condensed";
+=======
+@import url('https://fonts.googleapis.com/css?family=Asap+Condensed');
+
+* {
+    font-family: 'Asap Condensed';
+>>>>>>> ad1819f732dedfae4b5a354a8b357df1bc9e95a0
 }
 
 body {

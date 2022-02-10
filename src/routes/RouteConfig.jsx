@@ -7,7 +7,9 @@ import Register from "../components/auths/register/Register";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import Footer from "../components/layouts/mainlayout/footer/Footer";
+import Profile from "../pages/profile/Profile";
 import Messenger from "../pages/messenger/Messenger";
+import UserContextProvider from "../contexts/UserContext";
 
 const routes = {
   guest: [
@@ -17,8 +19,10 @@ const routes = {
   ],
   user: [
     { path: "/", element: <Home /> },
-    { path: "*", element: <Navigate to="/" replace={true} /> },
+    { path: "/profile", element: <Profile /> },
     { path: "/messenger", element: <Messenger /> },
+
+    { path: "*", element: <Navigate to="/" replace={true} /> },
   ],
 };
 function RouteConfig() {
@@ -26,38 +30,34 @@ function RouteConfig() {
 
   if (role === "user" && !user) {
     return (
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
+      <>
+        {role === "user" ? (
+          <>
+            <UserContextProvider>
+              <Routes>
+                <Route path="/" element={<MainLayout />}>
+                  {routes[role].map((item) => (
+                    <Route
+                      path={item.path}
+                      element={item.element}
+                      key={item.path}
+                    />
+                  ))}
+                </Route>
+              </Routes>
+              <Footer />
+            </UserContextProvider>
+          </>
+        ) : (
+          <Routes>
+            {routes[role].map((item) => (
+              <Route path={item.path} element={item.element} key={item.path} />
+            ))}
+          </Routes>
+        )}
+      </>
     );
   }
-
-  return (
-    <>
-      {role === "user" ? (
-        <>
-          <Routes>
-            <Route path="/" element={<MainLayout />}>
-              {routes[role].map((item) => (
-                <Route
-                  path={item.path}
-                  element={item.element}
-                  key={item.path}
-                />
-              ))}
-            </Route>
-          </Routes>
-          <Footer />
-        </>
-      ) : (
-        <Routes>
-          {routes[role].map((item) => (
-            <Route path={item.path} element={item.element} key={item.path} />
-          ))}
-        </Routes>
-      )}
-    </>
-  );
 }
 
 export default RouteConfig;
