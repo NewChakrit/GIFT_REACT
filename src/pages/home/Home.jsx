@@ -1,10 +1,20 @@
 import React from 'react';
+import CardProfile from '../../components/Profile/cardprofile/CardProfile';
 import './home.css';
 
 function Home() {
     return (
-        <div>
-            <h1>Home Page</h1>
+        <div className="homePage">
+            <CardProfile />
+            <CardProfile />
+            <CardProfile />
+            <CardProfile />
+            <CardProfile />
+            <CardProfile />
+            <CardProfile />
+            <CardProfile />
+            <CardProfile />
+            <CardProfile />
         </div>
     );
 }

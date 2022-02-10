@@ -1,0 +1,11 @@
+.homePage {
+    padding: 10px;
+    margin-top: 60px;
+    height: 88vh;
+    background-image: url('https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 40px;
+    color: #33a2e5;
+}
