@@ -7,6 +7,7 @@ import Register from '../components/auths/register/Register';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import Footer from '../components/layouts/mainlayout/footer/Footer';
+import Profile from '../pages/profile/Profile';
 
 const routes = {
     guest: [
@@ -16,6 +17,7 @@ const routes = {
     ],
     user: [
         { path: '/', element: <Home /> },
+        { path: '/profile', element: <Profile /> },
         { path: '*', element: <Navigate to="/" replace={true} /> },
     ],
 };
