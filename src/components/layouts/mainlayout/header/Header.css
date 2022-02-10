@@ -1,0 +1,24 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  height: 92px;
+  align-items: center;
+}
+
+.header-name {
+  color: #33a2e5;
+  width: 60%;
+}
+
+.header-left {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+.header-right {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  color: #33a2e5;
+}

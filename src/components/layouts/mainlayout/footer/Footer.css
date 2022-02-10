@@ -1,0 +1,13 @@
+.main-footer {
+  display: flex;
+  height: 83px;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #33a2e5;
+  height: 100%;
+}
