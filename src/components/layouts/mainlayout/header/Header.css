@@ -10,6 +10,8 @@
 .header-name {
     color: #33a2e5;
     width: 60%;
+    font-weight: bold;
+    font-size: 2rem;
 }
 
 .header-left {
@@ -23,4 +25,12 @@
     justify-content: center;
     width: 20%;
     color: #33a2e5;
+}
+
+.header-profile {
+    color: #33a2e5;
+    font-weight: bold;
+    padding-left: 30px;
+    font-size: 2rem;
+    padding-right: 25px;
 }

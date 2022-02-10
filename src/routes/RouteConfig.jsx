@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import Footer from '../components/layouts/mainlayout/footer/Footer';
 import Profile from '../pages/profile/Profile';
+import UserContextProvider from '../contexts/UserContext';
 
 const routes = {
     guest: [
@@ -36,18 +37,20 @@ function RouteConfig() {
         <>
             {role === 'user' ? (
                 <>
-                    <Routes>
-                        <Route path="/" element={<MainLayout />}>
-                            {routes[role].map((item) => (
-                                <Route
-                                    path={item.path}
-                                    element={item.element}
-                                    key={item.path}
-                                />
-                            ))}
-                        </Route>
-                    </Routes>
-                    <Footer />
+                    <UserContextProvider>
+                        <Routes>
+                            <Route path="/" element={<MainLayout />}>
+                                {routes[role].map((item) => (
+                                    <Route
+                                        path={item.path}
+                                        element={item.element}
+                                        key={item.path}
+                                    />
+                                ))}
+                            </Route>
+                        </Routes>
+                        <Footer />
+                    </UserContextProvider>
                 </>
             ) : (
                 <Routes>

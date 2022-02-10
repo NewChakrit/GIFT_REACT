@@ -1,10 +1,11 @@
 import React from 'react';
+import ProfileHeader from '../../components/Profile/profileheader/ProfileHeader';
 import './profile.css';
 
 function Profile() {
     return (
-        <div>
-            <h1>Profile page</h1>
+        <div className="profile">
+            <ProfileHeader />
         </div>
     );
 }
