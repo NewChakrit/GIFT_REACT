@@ -14,11 +14,11 @@ function LogOutForm() {
             aria-hidden="true"
         >
             <div className="modal-dialog ">
-                <div className="modal-content postForm">
+                <div className="modal-content logoutForm">
                     <form onSubmit={logout}>
                         <div className="modal-header ">
                             <h5
-                                className="modal-title postTitle"
+                                className="modal-title logoutTitle"
                                 id="LogoutModalLabel"
                             >
                                 Logout
@@ -42,7 +42,7 @@ function LogOutForm() {
                                 Close
                             </button>
                             <button
-                                className="btn postBtn"
+                                className="btn logoutBtn"
                                 data-bs-dismiss="modal"
                             >
                                 Log out
