@@ -7,28 +7,8 @@ import { useState } from 'react';
 import InterestCard from '../interestcard/InterestCard';
 import ChangeProfilePicture from '../editprofileform/ChangeProfilePicture';
 
-function ProfileHeader() {
-    const { userData } = useContext(UserContext);
-    const [aboutData, setAboutData] = useState({});
-    const [interest, setInterest] = useState([]);
-
-    const fetchAboutMe = async () => {
-        try {
-            const res = await axios.get(`/about/${userData.id}`);
-            setAboutData(res.data.about);
-            setInterest(res.data.about.interest.split(','));
-        } catch (err) {
-            console.log(err);
-        }
-    };
-    console.log(interest);
-    useEffect(() => {
-        fetchAboutMe();
-    }, []);
-
-    if (!aboutData) {
-        return <></>;
-    }
+function ProfileHeader({ person }) {
+    const interest = person.About.interest.split(',');
 
     return (
         <>
@@ -49,7 +29,7 @@ function ProfileHeader() {
                         >
                             <img
                                 className="profileImg"
-                                src={userData.profileUrl}
+                                src={person.profileUrl}
                                 alt="Profile Pigture"
                             />
                         </div>
@@ -77,7 +57,7 @@ function ProfileHeader() {
                     </div>
                     <div className="profileDetailContent">
                         <div className="username">
-                            <strong>{userData.username}</strong>
+                            <strong>{person.username}</strong>
                         </div>
                         <div className="aboutme">
                             {/* <button
@@ -103,10 +83,7 @@ function ProfileHeader() {
                         </div>
                         <div className="d-flex justify-content-center">
                             <div className="caption">
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Similique eos nihil reiciendis
-                                minima quasi ex tempore eius nobis assumenda
-                                nam!
+                                {person.About.caption}
                             </div>
                         </div>
                     </div>

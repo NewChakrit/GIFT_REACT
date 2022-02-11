@@ -1,9 +1,11 @@
 import './Footer.css';
 import { Link, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../../../contexts/UserContext';
 
 function Footer() {
+    const { userData } = useContext(UserContext);
     const location = useLocation();
-    console.log(location.pathname);
 
     if (location.pathname.includes('/chat')) {
         return <></>;
@@ -26,7 +28,7 @@ function Footer() {
                         <i className="bi bi-chat-heart"></i>
                     </div>
                 </Link>
-                <Link to="profile">
+                <Link to={`profile/${userData.username}`}>
                     <div className="logo profile">
                         <i className="bi bi-person"></i>
                     </div>

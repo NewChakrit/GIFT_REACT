@@ -65,10 +65,8 @@ function Register() {
     const handleChange = (value) => {
         const result = [];
         value.map((item) => result.push(item.value));
-        console.log(result);
         setInterest(result.toString());
     };
-    console.log(interest);
 
     return (
         <div className="register">

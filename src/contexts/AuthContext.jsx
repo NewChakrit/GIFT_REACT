@@ -33,7 +33,6 @@ function AuthContextProvider(props) {
     const handleSubmitLogin = async (e) => {
         try {
             e.preventDefault();
-            console.log(5555);
             const res = await axios.post('/auth/login', { email, password });
 
             login(res.data.token);

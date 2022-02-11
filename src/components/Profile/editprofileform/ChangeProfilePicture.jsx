@@ -10,7 +10,6 @@ function ChangeProfilePicture() {
         useContext(AuthContext);
     const { fetchUser } = useContext(UserContext);
     const inputEl = useRef();
-    console.log(user);
 
     const handleFileInputChange = (e) => {
         e.preventDefault();
