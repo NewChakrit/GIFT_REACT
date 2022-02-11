@@ -19,7 +19,7 @@ function Profile() {
     };
     useEffect(() => {
         fetchUser();
-    }, [username, person]);
+    }, [username]);
 
     // //Fetch Post
     // useEffect(() => {
