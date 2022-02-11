@@ -27,6 +27,13 @@
     color: #33a2e5;
 }
 
+.header-right > button {
+    border: 1px solid #33a2e5;
+    border-radius: 8px;
+    margin: 0 7px;
+    color: #33a2e5;
+}
+
 .header-profile {
     color: #33a2e5;
     font-weight: bold;
