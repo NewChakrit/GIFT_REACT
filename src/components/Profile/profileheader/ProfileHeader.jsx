@@ -3,9 +3,13 @@ import './profileheader.css';
 import InterestCard from '../interestcard/InterestCard';
 import ChangeProfilePicture from '../editprofileform/ChangeProfilePicture';
 import ChangeCoverPicture from '../editprofileform/ChangeCoverPicture';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 function ProfileHeader({ person }) {
+    const { coverUrl, imageUrl } = useContext(AuthContext);
     const interest = person.About.interest.split(',');
+    console.log(person);
 
     return (
         <>
@@ -17,14 +21,16 @@ function ProfileHeader({ person }) {
                 <img
                     className="coverImg"
                     src={
-                        person.coverUrl
+                        coverUrl
+                            ? coverUrl
+                            : person.coverUrl
                             ? person.coverUrl
                             : `https://res.cloudinary.com/dbtlgaii3/image/upload/v1643775365/Beetalk/tbszddqddzpupxzyee2c.jpg`
                     }
                     alt="Cover Photo"
                 />
             </div>
-            <ChangeCoverPicture />
+            <ChangeCoverPicture person={person} />
             <div className="profileHeader">
                 <div className="profileDetail">
                     <div className="topProfileDetail">
@@ -35,11 +41,11 @@ function ProfileHeader({ person }) {
                         >
                             <img
                                 className="profileImg"
-                                src={person.profileUrl}
+                                src={imageUrl ? imageUrl : person.profileUrl}
                                 alt="Profile Pigture"
                             />
                         </div>
-                        <ChangeProfilePicture />
+                        <ChangeProfilePicture person={person} />
 
                         <div className="editProfile">
                             <button

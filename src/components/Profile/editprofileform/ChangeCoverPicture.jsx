@@ -6,7 +6,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import { UserContext } from '../../../contexts/UserContext';
 import './changecoverpicture.css';
 
-function ChangeCoverPicture() {
+function ChangeCoverPicture({ person }) {
     const { coverUrl, setCoverUrl, setLoading, loading, user } =
         useContext(AuthContext);
     const { fetchUser } = useContext(UserContext);
@@ -84,7 +84,9 @@ function ChangeCoverPicture() {
                                 src={
                                     coverUrl
                                         ? coverUrl
-                                        : `https://res.cloudinary.com/dbtlgaii3/image/upload/v1644336153/Gift/Profile_avatar_placeholder_large_tafrpo.png`
+                                        : person.coverUrl
+                                        ? person.coverUrl
+                                        : 'https://res.cloudinary.com/dbtlgaii3/image/upload/v1643775365/Beetalk/tbszddqddzpupxzyee2c.jpg'
                                 }
                                 alt="ProfileImg"
                                 role="button"

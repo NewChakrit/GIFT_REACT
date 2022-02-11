@@ -11,7 +11,8 @@ function Home() {
     useEffect(() => {
         const fetchAllUser = async (id) => {
             const res = await axios.get(`/user/all/${id}`);
-            setAllUserData(res.data.users);
+            setAllUserData(res.data.sortedUser);
+            console.log(res.data.sortedUser);
         };
         fetchAllUser(userData.id);
     }, []);

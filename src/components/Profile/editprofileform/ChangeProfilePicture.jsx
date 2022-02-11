@@ -5,7 +5,8 @@ import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { UserContext } from '../../../contexts/UserContext';
 
-function ChangeProfilePicture() {
+function ChangeProfilePicture({ person }) {
+    console.log(person);
     const { imageUrl, setImageUrl, setLoading, loading, user } =
         useContext(AuthContext);
     const { fetchUser } = useContext(UserContext);
@@ -80,11 +81,7 @@ function ChangeProfilePicture() {
                                 onChange={handleFileInputChange}
                             />
                             <img
-                                src={
-                                    imageUrl
-                                        ? imageUrl
-                                        : `https://res.cloudinary.com/dbtlgaii3/image/upload/v1644336153/Gift/Profile_avatar_placeholder_large_tafrpo.png`
-                                }
+                                src={imageUrl ? imageUrl : person.profileUrl}
                                 alt="ProfileImg"
                                 role="button"
                                 onClick={() => inputEl.current.click()}

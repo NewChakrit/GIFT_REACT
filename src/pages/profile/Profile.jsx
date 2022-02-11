@@ -4,11 +4,8 @@ import { useParams } from 'react-router-dom';
 import EditProfileForm from '../../components/Profile/editprofileform/EditProfileForm';
 import ProfileHeader from '../../components/Profile/profileheader/ProfileHeader';
 import './profile.css';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
 
 function Profile() {
-    // const { imageUrl, coverUrl } = useContext(AuthContext);
     const [person, setPerson] = useState({});
     const { username } = useParams();
 
@@ -20,11 +17,6 @@ function Profile() {
     useEffect(() => {
         fetchUser();
     }, [username]);
-
-    // //Fetch Post
-    // useEffect(() => {
-    //     fetchPost(username);
-    // }, [username]);
 
     if (!person.About) {
         return <></>;
