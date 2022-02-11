@@ -1,0 +1,42 @@
+.modal-title {
+  color: #33a2e5;
+  font-weight: bold;
+}
+.model-edit {
+  background-image: url("https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modal-header {
+  background-color: #fff;
+  border-bottom: 1px solid #33a2e5;
+}
+
+.closebutton {
+  background-color: #f898a4;
+  color: #fff;
+}
+.saveBtn {
+  background-color: #f898a4;
+  color: #fff;
+}
+.modal-footer {
+  border-top: 1px solid #33a2e5;
+}
+.caption-input {
+  border: 1px solid #33a2e5;
+  color: #33a2e5;
+}
+.age-input {
+  border: 1px solid #33a2e5;
+  color: #33a2e5;
+}
+.selecter {
+  border: 1px solid #33a2e5;
+  color: #33a2e5;
+}
+.date-input {
+  border: 1px solid #33a2e5;
+  color: #33a2e5;
+}
