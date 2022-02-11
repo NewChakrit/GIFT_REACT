@@ -61,9 +61,12 @@
 }
 
 .caption {
+    border-top: 1px solid #fce7d0;
+    border-bottom: 1px solid #fce7d0;
+    width: 90%;
     color: #f898a4;
-    padding: 0 30px 10px;
-    text-decoration: underline;
+    padding: 10px 10px 10px 0;
+    /* text-decoration: underline; */
 }
 
 .tabButton {

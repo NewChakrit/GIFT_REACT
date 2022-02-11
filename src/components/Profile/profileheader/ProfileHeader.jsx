@@ -5,6 +5,7 @@ import { UserContext } from '../../../contexts/UserContext';
 import './profileheader.css';
 import { useState } from 'react';
 import InterestCard from '../interestcard/InterestCard';
+import ChangeProfilePicture from '../editprofileform/ChangeProfilePicture';
 
 function ProfileHeader() {
     const { userData } = useContext(UserContext);
@@ -41,13 +42,18 @@ function ProfileHeader() {
             <div className="profileHeader">
                 <div className="profileDetail">
                     <div className="topProfileDetail">
-                        <div className="profilePicture">
+                        <div
+                            className="profilePicture"
+                            data-bs-toggle="modal"
+                            data-bs-target="#ChangeProfileImgModal"
+                        >
                             <img
                                 className="profileImg"
                                 src={userData.profileUrl}
                                 alt="Profile Pigture"
                             />
                         </div>
+                        <ChangeProfilePicture />
 
                         <div className="editProfile">
                             <button
@@ -95,7 +101,14 @@ function ProfileHeader() {
                                 return <InterestCard item={item} key={i} />;
                             })}
                         </div>
-                        <div className="caption">{aboutData.caption}</div>
+                        <div className="d-flex justify-content-center">
+                            <div className="caption">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Similique eos nihil reiciendis
+                                minima quasi ex tempore eius nobis assumenda
+                                nam!
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="tabButton">Post</div>
