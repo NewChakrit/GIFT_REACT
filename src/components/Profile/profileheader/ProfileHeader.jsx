@@ -34,7 +34,7 @@ function ProfileHeader() {
             <div className="coverPicture">
                 <img
                     className="coverImg"
-                    src="https://www.teahub.io/photos/full/51-513680_facebook-cover-wallpaper..jpg"
+                    src="https://res.cloudinary.com/dbtlgaii3/image/upload/v1643775365/Beetalk/tbszddqddzpupxzyee2c.jpg"
                     alt="Cover Photo"
                 />
             </div>
@@ -61,10 +61,10 @@ function ProfileHeader() {
                             <button
                                 className="btn"
                                 data-bs-toggle="modal"
-                                data-bs-target="#LogoutModal"
+                                data-bs-target="#PostModal"
                             >
                                 <b>
-                                    <i className="bi bi-box-arrow-right"></i>
+                                    <i className="bi bi-pencil-square"></i>
                                 </b>
                             </button>
                         </div>
