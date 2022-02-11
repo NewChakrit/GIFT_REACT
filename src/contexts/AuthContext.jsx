@@ -86,6 +86,13 @@ function AuthContextProvider(props) {
         }
     };
 
+    const logout = () => {
+        localStorageService.removeToken();
+        setUser(null);
+        setRole('guest');
+        navigate('/login');
+    };
+
     return (
         <AuthContext.Provider
             value={{
@@ -100,6 +107,7 @@ function AuthContextProvider(props) {
                 handleSubmitLogin,
                 handleSubmitRegister,
                 login,
+                logout,
                 firstName,
                 setFirstName,
                 lastName,
