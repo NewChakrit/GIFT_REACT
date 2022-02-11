@@ -1,0 +1,10 @@
+.previewCoverImg {
+    text-align: center;
+}
+
+.previewCoverImg > img {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+}

@@ -19,6 +19,7 @@ function AuthContextProvider(props) {
     const [role, setRole] = useState(localStorageService.getRole());
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState('');
+    const [coverUrl, setCoverUrl] = useState('');
     const [gender, setGender] = useState('');
     const [interest, setInterest] = useState('');
     const navigate = useNavigate();
@@ -121,6 +122,8 @@ function AuthContextProvider(props) {
                 setLoading,
                 imageUrl,
                 setImageUrl,
+                coverUrl,
+                setCoverUrl,
                 gender,
                 setGender,
                 interest,

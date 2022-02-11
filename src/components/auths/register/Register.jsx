@@ -358,16 +358,30 @@ function Register() {
                                             />
                                         </div>
 
-                                        <button
-                                            type="button"
-                                            className="btn btn-danger modalSubmitButton"
-                                            data-bs-dismiss="modal"
-                                            aria-label="Close"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#InterestModal"
-                                        >
-                                            Continue
-                                        </button>
+                                        {loading ? (
+                                            <button
+                                                type="button"
+                                                className="btn btn-danger modalSubmitButton"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#InterestModal"
+                                                disabled
+                                            >
+                                                Continue
+                                            </button>
+                                        ) : (
+                                            <button
+                                                type="button"
+                                                className="btn btn-danger modalSubmitButton"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#InterestModal"
+                                            >
+                                                Continue
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </div>

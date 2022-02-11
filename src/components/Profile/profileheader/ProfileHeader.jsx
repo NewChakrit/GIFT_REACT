@@ -1,24 +1,30 @@
-import axios from '../../../config/axios';
-import React, { useEffect } from 'react';
-import { useContext } from 'react';
-import { UserContext } from '../../../contexts/UserContext';
+import React from 'react';
 import './profileheader.css';
-import { useState } from 'react';
 import InterestCard from '../interestcard/InterestCard';
 import ChangeProfilePicture from '../editprofileform/ChangeProfilePicture';
+import ChangeCoverPicture from '../editprofileform/ChangeCoverPicture';
 
 function ProfileHeader({ person }) {
     const interest = person.About.interest.split(',');
 
     return (
         <>
-            <div className="coverPicture">
+            <div
+                className="coverPicture"
+                data-bs-toggle="modal"
+                data-bs-target="#ChangeCoverImgModal"
+            >
                 <img
                     className="coverImg"
-                    src="https://res.cloudinary.com/dbtlgaii3/image/upload/v1643775365/Beetalk/tbszddqddzpupxzyee2c.jpg"
+                    src={
+                        person.coverUrl
+                            ? person.coverUrl
+                            : `https://res.cloudinary.com/dbtlgaii3/image/upload/v1643775365/Beetalk/tbszddqddzpupxzyee2c.jpg`
+                    }
                     alt="Cover Photo"
                 />
             </div>
+            <ChangeCoverPicture />
             <div className="profileHeader">
                 <div className="profileDetail">
                     <div className="topProfileDetail">
