@@ -31,10 +31,6 @@ function EditProfileForm({ person, setPerson, username }) {
             });
             const res = await axios.get(`/user/${username}`);
             setPerson(res.data.user);
-            setDate('');
-            setAge('');
-            setProfileCaption('');
-            setEditInterest('');
         } catch (err) {
             console.log(err.message);
         }
