@@ -10,6 +10,7 @@ import Footer from '../components/layouts/mainlayout/footer/Footer';
 import Profile from '../pages/profile/Profile';
 import Messenger from '../pages/messenger/Messenger';
 import UserContextProvider from '../contexts/UserContext';
+import PostContextProvider from '../contexts/PostContext';
 import Chat from '../pages/chat/Chat';
 
 const routes = {
@@ -43,18 +44,20 @@ function RouteConfig() {
             {role === 'user' ? (
                 <>
                     <UserContextProvider>
-                        <Routes>
-                            <Route path="/" element={<MainLayout />}>
-                                {routes[role].map((item) => (
-                                    <Route
-                                        path={item.path}
-                                        element={item.element}
-                                        key={item.path}
-                                    />
-                                ))}
-                            </Route>
-                        </Routes>
-                        <Footer />
+                        <PostContextProvider>
+                            <Routes>
+                                <Route path="/" element={<MainLayout />}>
+                                    {routes[role].map((item) => (
+                                        <Route
+                                            path={item.path}
+                                            element={item.element}
+                                            key={item.path}
+                                        />
+                                    ))}
+                                </Route>
+                            </Routes>
+                            <Footer />
+                        </PostContextProvider>
                     </UserContextProvider>
                 </>
             ) : (

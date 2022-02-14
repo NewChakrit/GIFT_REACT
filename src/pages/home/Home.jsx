@@ -16,6 +16,7 @@ function Home() {
         };
         fetchAllUser(userData.id);
     }, []);
+
     return (
         <div className="homePage">
             <div className="cardContainer">

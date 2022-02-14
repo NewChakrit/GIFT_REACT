@@ -1,11 +1,14 @@
 import axios from '../../config/axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EditProfileForm from '../../components/Profile/editprofileform/EditProfileForm';
 import ProfileHeader from '../../components/Profile/profileheader/ProfileHeader';
 import './profile.css';
+import PostCard from '../../components/post/postcard/PostCard';
+import { PostContext } from '../../contexts/PostContext';
 
 function Profile() {
+    const { fetchPost, post } = useContext(PostContext);
     const [person, setPerson] = useState({});
     const { username } = useParams();
 
@@ -16,15 +19,42 @@ function Profile() {
     };
     useEffect(() => {
         fetchUser();
+        fetchPost(username);
     }, [username]);
 
-    if (!person.About) {
+    if (!person.About || !post) {
         return <></>;
     }
     return (
         <div className="profile">
             <ProfileHeader person={person} />
             <EditProfileForm />
+            <div
+                style={{
+                    display: 'flex',
+                    // marginTop: '10px',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-around',
+                    padding: '10px',
+                    // gap: '5px',
+                }}
+            >
+                {post.map((item) => {
+                    return <PostCard item={item} key={item.id} />;
+                })}
+                {post.map((item) => {
+                    return <PostCard item={item} key={item.id} />;
+                })}
+                {post.map((item) => {
+                    return <PostCard item={item} key={item.id} />;
+                })}
+                {post.map((item) => {
+                    return <PostCard item={item} key={item.id} />;
+                })}
+                {post.map((item) => {
+                    return <PostCard item={item} key={item.id} />;
+                })}
+            </div>
         </div>
     );
 }

@@ -1,0 +1,19 @@
+.postCardContainer {
+    width: 45%;
+    text-align: end;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 8px 14px -2px grey;
+}
+
+.heartIcon {
+    /* width: 30px; */
+    font-size: 1.8rem;
+    color: #f898a4;
+    /* margin: 0 20px; */
+}
