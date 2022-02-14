@@ -6,9 +6,11 @@ import ProfileHeader from '../../components/Profile/profileheader/ProfileHeader'
 import './profile.css';
 import PostCard from '../../components/post/postcard/PostCard';
 import { PostContext } from '../../contexts/PostContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Profile() {
     const { fetchPost, post } = useContext(PostContext);
+    const { user } = useContext(AuthContext);
     const [person, setPerson] = useState({});
     const { username } = useParams();
 
