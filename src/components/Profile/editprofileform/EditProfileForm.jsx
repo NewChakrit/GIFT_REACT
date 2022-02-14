@@ -1,16 +1,43 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './editprofileform.css';
 import Select from 'react-select';
 import { interestOption } from '../../auths/register/docs/data';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { UserContext } from '../../../contexts/UserContext';
+import axios from '../../../config/axios';
 
-function EditProfileForm() {
-    const { setInterest } = useContext(AuthContext);
+function EditProfileForm({ person, setPerson, username }) {
+    const { userData } = useContext(UserContext);
+    const [date, setDate] = useState(person.About.birthDate);
+    const [age, setAge] = useState(person.About.age);
+    const [profileCaption, setProfileCaption] = useState(person.About.caption);
+    const [editInterest, setEditInterest] = useState(person.About.interest);
+
+    console.log(person);
 
     const handleChangeToggle = (value) => {
         const result = [];
         value.map((item) => result.push(item.value));
-        setInterest(result.toString());
+        setEditInterest(result.toString());
+    };
+
+    const handleSubmitUpdateProfile = async (e) => {
+        try {
+            e.preventDefault();
+            await axios.put(`/about/${userData.id}`, {
+                age: age,
+                birthDate: date,
+                caption: profileCaption,
+                interest: editInterest,
+            });
+            const res = await axios.get(`/user/${username}`);
+            setPerson(res.data.user);
+            setDate('');
+            setAge('');
+            setProfileCaption('');
+            setEditInterest('');
+        } catch (err) {
+            console.log(err.message);
+        }
     };
     return (
         <div
@@ -21,7 +48,10 @@ function EditProfileForm() {
             aria-hidden="true"
         >
             <div className="modal-dialog modal-fullscreen">
-                <form className="modal-content editProfileForm model-edit">
+                <form
+                    className="modal-content editProfileForm model-edit"
+                    onSubmit={handleSubmitUpdateProfile}
+                >
                     <div className="modal-header mb-3 ">
                         <h5 className="modal-title " id="EditProfileModalLabel">
                             Edit Profile
@@ -42,6 +72,8 @@ function EditProfileForm() {
                                 type="date"
                                 className="form-control date-input"
                                 id="dateofbirth"
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
                             />
                         </div>
                         <div className="mb-3">
@@ -52,18 +84,10 @@ function EditProfileForm() {
                                 type="text"
                                 className="form-control age-input"
                                 id="age"
+                                value={age}
+                                onChange={(e) => setAge(e.target.value)}
                             />
                         </div>
-                        {/* <div className="mb-3">
-              <label className="form-label">INTEREST</label>
-              <select
-                className="form-select"
-                aria-label="Default select example"
-              >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </div> */}
                         <div className="mb-2">INTEREST</div>
                         <Select
                             isMulti
@@ -82,6 +106,10 @@ function EditProfileForm() {
                                 type="text"
                                 className="form-control caption-input"
                                 id="caption"
+                                value={profileCaption}
+                                onChange={(e) =>
+                                    setProfileCaption(e.target.value)
+                                }
                             />
                         </div>
                     </div>

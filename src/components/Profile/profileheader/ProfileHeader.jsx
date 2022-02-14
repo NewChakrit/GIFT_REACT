@@ -5,6 +5,7 @@ import ChangeProfilePicture from '../editprofileform/ChangeProfilePicture';
 import ChangeCoverPicture from '../editprofileform/ChangeCoverPicture';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
+import PostForm from '../../post/postform/PostForm';
 
 function ProfileHeader({ person }) {
     const { coverUrl, imageUrl } = useContext(AuthContext);
@@ -102,6 +103,7 @@ function ProfileHeader({ person }) {
                 </div>
                 <div className="tabButton">Post</div>
             </div>
+            <PostForm />
         </>
     );
 }

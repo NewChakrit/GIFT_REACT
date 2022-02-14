@@ -28,29 +28,19 @@ function Profile() {
     return (
         <div className="profile">
             <ProfileHeader person={person} />
-            <EditProfileForm />
+            <EditProfileForm
+                person={person}
+                setPerson={setPerson}
+                username={username}
+            />
             <div
                 style={{
                     display: 'flex',
-                    // marginTop: '10px',
                     flexWrap: 'wrap',
                     justifyContent: 'space-around',
                     padding: '10px',
-                    // gap: '5px',
                 }}
             >
-                {post.map((item) => {
-                    return <PostCard item={item} key={item.id} />;
-                })}
-                {post.map((item) => {
-                    return <PostCard item={item} key={item.id} />;
-                })}
-                {post.map((item) => {
-                    return <PostCard item={item} key={item.id} />;
-                })}
-                {post.map((item) => {
-                    return <PostCard item={item} key={item.id} />;
-                })}
                 {post.map((item) => {
                     return <PostCard item={item} key={item.id} />;
                 })}

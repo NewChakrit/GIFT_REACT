@@ -6,7 +6,6 @@ function PostCard({ item }) {
     return (
         <>
             <div
-                role="button"
                 className="postCardContainer"
                 style={{
                     backgroundImage: `url(${item.pictureUrl}) `,
@@ -16,7 +15,10 @@ function PostCard({ item }) {
             >
                 <button
                     className="btn"
-                    style={{ height: '50px', width: '60px' }}
+                    style={{
+                        height: '50px',
+                        width: '60px',
+                    }}
                 >
                     <i className="bi bi-heart-fill heartIcon" />
                 </button>
