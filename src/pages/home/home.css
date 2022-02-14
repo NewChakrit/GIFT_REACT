@@ -1,14 +1,15 @@
 .homePage {
-    position: fixed;
-    padding: 10px;
-    margin-top: 100px;
-    height: 100%;
-    background-image: url('https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    border-radius: 40px;
-    color: #33a2e5;
-    overflow-y: scroll;
-    padding-bottom: 200px;
+  position: fixed;
+  padding: 10px;
+  margin-top: 100px;
+  height: 100%;
+  width: 100vw;
+  background-image: url("https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 40px;
+  color: #33a2e5;
+  overflow-y: scroll;
+  padding-bottom: 200px;
 }
