@@ -6,7 +6,7 @@ import { PostContext } from '../../../contexts/PostContext';
 import './postcontent.css';
 import { AuthContext } from '../../../contexts/AuthContext';
 
-function PostContent({ item }) {
+function PostContent({ item, likePost, unLikePost, isLike, setIsLike }) {
     const { deletePost, showEdit, setShowEdit, updatePost } =
         useContext(PostContext);
     const { loading, setLoading } = useContext(AuthContext);
@@ -45,6 +45,8 @@ function PostContent({ item }) {
             alert('File size too large.');
         }
     };
+
+    console.log(item.Likes);
 
     return (
         <div
@@ -149,6 +151,7 @@ function PostContent({ item }) {
                                         type="button"
                                         className="btn btn-secondary"
                                         data-bs-dismiss="modal"
+                                        onClick={() => setShowEdit(false)}
                                     >
                                         Close
                                     </button>
@@ -191,10 +194,17 @@ function PostContent({ item }) {
                             <button
                                 className="btn btn-footer"
                                 style={{ height: '50px', width: '60px' }}
+                                onClick={isLike ? unLikePost : likePost}
                             >
-                                <i className="bi bi-heart-fill heartIcon" />
+                                <i
+                                    className={`bi bi-heart${
+                                        isLike ? '-fill' : ''
+                                    } heartIcon`}
+                                />
                             </button>
-                            <div className="like-amount">200</div>
+                            <div className="like-amount">
+                                {item.Likes.length}
+                            </div>
                         </div>
                     )}
                 </div>
