@@ -5,6 +5,7 @@ import { PostContext } from '../../../contexts/PostContext';
 import { UserContext } from '../../../contexts/UserContext';
 import PostContent from '../postcontent/PostContent';
 import './postcard.css';
+import ConfirmDeletePost from '../confirmdeletepost/ConfirmDeletePost';
 
 function PostCard({ item }) {
     const { userData } = useContext(UserContext);
@@ -59,6 +60,7 @@ function PostCard({ item }) {
                 isLike={isLike}
                 setIsLike={setIsLike}
             />
+            <ConfirmDeletePost item={item} />
         </>
     );
 }
