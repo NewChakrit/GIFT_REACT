@@ -7,12 +7,14 @@ import axios from '../../../config/axios';
 
 function EditProfileForm({ person, setPerson, username }) {
     const { userData } = useContext(UserContext);
-    const [date, setDate] = useState(person.About.birthDate);
-    const [age, setAge] = useState(person.About.age);
-    const [profileCaption, setProfileCaption] = useState(person.About.caption);
-    const [editInterest, setEditInterest] = useState(person.About.interest);
-
-    console.log(person);
+    const [date, setDate] = useState(person.About.birthDate || '');
+    const [age, setAge] = useState(person.About.age || '');
+    const [profileCaption, setProfileCaption] = useState(
+        person.About.caption || ''
+    );
+    const [editInterest, setEditInterest] = useState(
+        person.About.interest || ''
+    );
 
     const handleChangeToggle = (value) => {
         const result = [];
