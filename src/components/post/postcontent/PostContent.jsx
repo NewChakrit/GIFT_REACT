@@ -75,7 +75,9 @@ function PostContent({ item, likePost, unLikePost, isLike, setIsLike }) {
                                         className="btn btn-light"
                                         data-bs-dismiss="modal"
                                         aria-label="Close"
-                                        onClick={() => deletePost(item.id)}
+                                        data-bs-toggle="modal"
+                                        data-bs-target={`#DeletePostModal${item.id}`}
+                                        // onClick={() => deletePost(item.id)}
                                     >
                                         Delete
                                     </button>
