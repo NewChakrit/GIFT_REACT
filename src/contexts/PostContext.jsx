@@ -7,6 +7,7 @@ function PostContextProvider(props) {
     const [post, setPost] = useState([]);
     const [title, setTitle] = useState('');
     const [picture, setPicture] = useState('');
+    const [showEdit, setShowEdit] = useState(false);
 
     // Get data profile
     const fetchPost = async (username) => {
@@ -34,6 +35,7 @@ function PostContextProvider(props) {
         });
         newPost[idx] = res.data.post;
         setPost(newPost);
+        setShowEdit(false);
     };
 
     const deletePost = async (id) => {
@@ -54,6 +56,8 @@ function PostContextProvider(props) {
                 setPicture,
                 updatePost,
                 deletePost,
+                showEdit,
+                setShowEdit,
             }}
         >
             {props.children}
