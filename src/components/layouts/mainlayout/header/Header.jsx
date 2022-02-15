@@ -1,10 +1,15 @@
 import './Header.css';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import LogOutForm from '../../../logoutform/LogoutForm';
+import { useContext } from 'react';
+import { AuthContext } from '../../../../contexts/AuthContext';
 
 function Header() {
+    const { user } = useContext(AuthContext);
     const location = useLocation();
+    const { username } = useParams();
+    console.log(username);
 
     return (
         <>
@@ -37,13 +42,17 @@ function Header() {
                             <i className="bi bi-sliders2"></i>
                         </button>
                     ) : location.pathname.includes('/profile') ? (
-                        <button
-                            className="btn"
-                            data-bs-toggle="modal"
-                            data-bs-target="#LogoutModal"
-                        >
-                            <i className="bi bi-box-arrow-right"></i>
-                        </button>
+                        user.username === username ? (
+                            <button
+                                className="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#LogoutModal"
+                            >
+                                <i className="bi bi-box-arrow-right"></i>
+                            </button>
+                        ) : (
+                            <></>
+                        )
                     ) : location.pathname.includes('/messenger') ? (
                         <button
                             className="btn"
