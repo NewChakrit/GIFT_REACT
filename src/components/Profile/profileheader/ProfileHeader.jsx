@@ -15,7 +15,7 @@ function ProfileHeader({ person }) {
         <>
             <div
                 className="coverPicture"
-                data-bs-toggle="modal"
+                data-bs-toggle={`${user.id === person.id ? 'modal' : ''}`}
                 data-bs-target="#ChangeCoverImgModal"
             >
                 <img
@@ -36,7 +36,9 @@ function ProfileHeader({ person }) {
                     <div className="topProfileDetail">
                         <div
                             className="profilePicture"
-                            data-bs-toggle="modal"
+                            data-bs-toggle={`${
+                                user.id === person.id ? 'modal' : ''
+                            }`}
                             data-bs-target="#ChangeProfileImgModal"
                         >
                             <img

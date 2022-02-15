@@ -9,7 +9,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 function PostContent({ item, likePost, unLikePost, isLike, setIsLike }) {
     const { deletePost, showEdit, setShowEdit, updatePost } =
         useContext(PostContext);
-    const { loading, setLoading } = useContext(AuthContext);
+    const { loading, setLoading, user } = useContext(AuthContext);
     const [editText, setEditText] = useState(item.caption);
     const [editPicture, setEditPicture] = useState(item.pictureUrl);
 
@@ -60,23 +60,29 @@ function PostContent({ item, likePost, unLikePost, isLike, setIsLike }) {
                 <div className="modal-content">
                     <div className="modal-header">
                         <div className="left-menu">
-                            <button
-                                type="button"
-                                className="btn btn-light"
-                                onClick={() => setShowEdit(!showEdit)}
-                            >
-                                Edit
-                            </button>
+                            {item.userId === user.id ? (
+                                <>
+                                    <button
+                                        type="button"
+                                        className="btn btn-light"
+                                        onClick={() => setShowEdit(!showEdit)}
+                                    >
+                                        Edit
+                                    </button>
 
-                            <button
-                                type="button"
-                                className="btn btn-light"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                                onClick={() => deletePost(item.id)}
-                            >
-                                Delete
-                            </button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-light"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"
+                                        onClick={() => deletePost(item.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                </>
+                            ) : (
+                                <></>
+                            )}
                         </div>
 
                         <div className="right-menu">
