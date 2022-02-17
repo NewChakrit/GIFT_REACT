@@ -42,17 +42,27 @@ function Chat() {
     return (
         <form onSubmit={handleClickSend}>
             <div className="main-chat" style={{ paddingTop: '10px' }}>
-                <div className="chatBoxTop" ref={chatboxRef}>
-                    {messages.map((item, index) => {
-                        return (
-                            <Message
-                                message={item}
-                                key={index}
-                                own={userData.id === item.userId}
-                                userData={userData}
-                            />
-                        );
-                    })}
+                <div
+                    className="chatBoxTop"
+                    ref={chatboxRef}
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <div>
+                        {messages.map((item, index) => {
+                            return (
+                                <Message
+                                    message={item}
+                                    key={index}
+                                    own={userData.id === item.userId}
+                                    userData={userData}
+                                />
+                            );
+                        })}
+                    </div>
                     <div className="typingMessage">
                         {typingStatus ? `${typingName} is typing ...` : ''}
                     </div>

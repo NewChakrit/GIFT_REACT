@@ -1,12 +1,20 @@
+import { useState } from 'react';
 import timeSince from '../../services/timeSince';
 import './Message.css';
 
 function Message({ message, own, userData }) {
-    console.log(message);
+    const [toggle, setToggle] = useState(false);
     return (
         <div style={{ paddingBottom: '20px' }}>
-            <div className="time">{timeSince(message.time)}</div>
-            <div className={`main-message ${own ? 'own-message' : ''}`}>
+            {toggle ? (
+                <div className="time">{timeSince(message.time)}</div>
+            ) : (
+                <></>
+            )}
+            <div
+                className={`main-message ${own ? 'own-message' : ''}`}
+                onClick={() => setToggle(!toggle)}
+            >
                 <div className="profileCardImg messageImg">
                     <img
                         className="cardImg"

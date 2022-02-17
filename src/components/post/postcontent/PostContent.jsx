@@ -46,8 +46,6 @@ function PostContent({ item, likePost, unLikePost, isLike, setIsLike }) {
         }
     };
 
-    console.log(item.Likes);
-
     return (
         <div
             className="modal fade"

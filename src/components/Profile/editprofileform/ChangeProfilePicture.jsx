@@ -6,7 +6,6 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import { UserContext } from '../../../contexts/UserContext';
 
 function ChangeProfilePicture({ person }) {
-    console.log(person);
     const { imageUrl, setImageUrl, setLoading, loading, user } =
         useContext(AuthContext);
     const { fetchUser } = useContext(UserContext);

@@ -4,7 +4,6 @@ import './Conversation.css';
 
 function Conversation({ room }) {
     const navigate = useNavigate();
-    console.log(room);
 
     return (
         <div
