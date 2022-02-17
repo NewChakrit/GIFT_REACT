@@ -19,7 +19,7 @@
 .chatBoxTop {
     height: 75vh;
     overflow-y: scroll;
-    padding: 0px 10px 0;
+    padding: 0px 10px 20px;
 }
 
 .typingMessage {

@@ -53,9 +53,9 @@ function Chat() {
                             />
                         );
                     })}
-                </div>
-                <div className="typingMessage">
-                    {typingStatus ? `${typingName} is typing ...` : ''}
+                    <div className="typingMessage">
+                        {typingStatus ? `${typingName} is typing ...` : ''}
+                    </div>
                 </div>
                 <FooterChat
                     handleChangeTyping={handleChangeTyping}

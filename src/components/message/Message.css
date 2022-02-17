@@ -1,44 +1,46 @@
 .main-message {
-  display: flex;
-  margin-top: 4%;
+    display: flex;
+    margin-top: 4%;
 }
 
 .messageImg {
-  display: flex;
-  align-items: flex-end;
-  width: 15%;
-  margin-left: 6%;
+    display: flex;
+    align-items: flex-end;
+    width: 15%;
+    margin-left: 6%;
 }
 
 .ptag {
-  margin-right: 15%;
-  color: #f898a4;
-  background-color: #eefaff;
-  border-radius: 15px 15px 15px 0px;
+    margin-right: 15%;
+    color: #f898a4;
+    background-color: #eefaff;
+    border-radius: 15px 15px 15px 0px;
 }
 
 .message {
-  width: 60%;
-  padding: 3%;
+    width: 60%;
+    padding: 3%;
+    word-break: break-all;
+    white-space: normal;
 }
 
 .message p {
-  margin: 0;
+    margin: 0;
 }
 
 .own-message {
-  flex-direction: row-reverse;
-  justify-content: flex-start;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
 }
 
 .ownptag {
-  margin-left: 15%;
-  background-color: #33a2e5;
-  color: white;
-  border-radius: 15px 15px 0px 15px;
+    margin-left: 15%;
+    background-color: #33a2e5;
+    color: white;
+    border-radius: 15px 15px 0px 15px;
 }
 
 .time {
-  text-align: center;
-  margin-top: 4%;
+    text-align: center;
+    margin-top: 4%;
 }
