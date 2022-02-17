@@ -29,7 +29,7 @@ function Header() {
                     ) : location.pathname.includes('/profile') ? (
                         <h2 className="header-profile">Profile details</h2>
                     ) : location.pathname.includes('/chat') ? (
-                        <h2 className="header-profile">Nahee</h2>
+                        <h2 className="header-profile">Jane</h2>
                     ) : location.pathname.includes('/messenger') ? (
                         <h2 className="header-profile">message</h2>
                     ) : (
