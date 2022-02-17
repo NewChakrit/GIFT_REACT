@@ -1,32 +1,31 @@
 .postPicture {
-    width: 100%;
-    border-radius: 15px;
+  width: 100%;
+  border-radius: 15px;
 }
 .modalFooter {
-    display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0.75rem;
-    border-top: 1px solid #dee2e6;
-    border-bottom-right-radius: calc(0.3rem - 2px);
-    border-bottom-left-radius: calc(0.3rem - 1px);
-}
-
-.btn-footer {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: calc(0.3rem - 2px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
 }
 
 .edit-btn {
-    height: 1em;
-    width: 1em;
+  height: 1em;
+  width: 1em;
 }
 
 .right-menu {
-    display: flex;
+  display: flex;
 }
 .btn-light {
-    margin-right: 5px;
+  margin-right: 5px;
+}
+
+.like-amount {
+  margin-left: 20px;
 }
