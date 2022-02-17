@@ -12,6 +12,8 @@ import Messenger from '../pages/messenger/Messenger';
 import UserContextProvider from '../contexts/UserContext';
 import PostContextProvider from '../contexts/PostContext';
 import Chat from '../pages/chat/Chat';
+import ChatContextProvider from '../contexts/ChatContext';
+import SocketContextProvider from '../contexts/SocketContext';
 
 const routes = {
     guest: [
@@ -23,7 +25,7 @@ const routes = {
         { path: '/', element: <Home /> },
         { path: '/profile/:username', element: <Profile /> },
         { path: '/messenger', element: <Messenger /> },
-        { path: '/chat', element: <Chat /> },
+        { path: '/messenger/:id', element: <Chat /> },
         { path: '*', element: <Navigate to="/" replace={true} /> },
     ],
 };
@@ -45,17 +47,24 @@ function RouteConfig() {
                 <>
                     <UserContextProvider>
                         <PostContextProvider>
-                            <Routes>
-                                <Route path="/" element={<MainLayout />}>
-                                    {routes[role].map((item) => (
+                            <SocketContextProvider>
+                                <ChatContextProvider>
+                                    <Routes>
                                         <Route
-                                            path={item.path}
-                                            element={item.element}
-                                            key={item.path}
-                                        />
-                                    ))}
-                                </Route>
-                            </Routes>
+                                            path="/"
+                                            element={<MainLayout />}
+                                        >
+                                            {routes[role].map((item) => (
+                                                <Route
+                                                    path={item.path}
+                                                    element={item.element}
+                                                    key={item.path}
+                                                />
+                                            ))}
+                                        </Route>
+                                    </Routes>
+                                </ChatContextProvider>
+                            </SocketContextProvider>
                             <Footer />
                         </PostContextProvider>
                     </UserContextProvider>

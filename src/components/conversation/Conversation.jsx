@@ -1,8 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import './Conversation.css';
 
-function Conversation() {
+function Conversation({ room }) {
+    const navigate = useNavigate();
+
     return (
-        <div className="conversationCard">
+        <div
+            className="conversationCard"
+            onClick={() => {
+                navigate(`/messenger/${room.friendId}`);
+            }}
+        >
             <div className="profileCardImg">
                 <img
                     className="cardImg"

@@ -6,10 +6,17 @@ import ChangeCoverPicture from '../editprofileform/ChangeCoverPicture';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import PostForm from '../../post/postform/PostForm';
+import { useNavigate } from 'react-router-dom';
 
 function ProfileHeader({ person }) {
     const { coverUrl, imageUrl, user } = useContext(AuthContext);
     const interest = person.About.interest.split(',');
+
+    const navigate = useNavigate();
+
+    const handleClickOpenChat = async () => {
+        navigate(`/messenger/${person.id}`);
+    };
 
     return (
         <>
@@ -71,7 +78,11 @@ function ProfileHeader({ person }) {
                                     </button>
                                 </>
                             ) : (
-                                <button type="button" className="btn">
+                                <button
+                                    type="button"
+                                    className="btn"
+                                    onClick={handleClickOpenChat}
+                                >
                                     <b>Chat</b>
                                 </button>
                             )}

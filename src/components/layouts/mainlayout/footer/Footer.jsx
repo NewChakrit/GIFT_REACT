@@ -7,7 +7,7 @@ function Footer() {
     const { userData } = useContext(UserContext);
     const location = useLocation();
 
-    if (location.pathname.includes('/chat')) {
+    if (location.pathname.includes('/messenger/')) {
         return <></>;
     }
     return (

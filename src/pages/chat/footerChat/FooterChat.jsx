@@ -1,6 +1,6 @@
 import './FooterChat.css';
 
-function FooterChat() {
+function FooterChat({ handleChangeTyping, inputText }) {
     return (
         <div className="main-footer footer-chat">
             <input
@@ -9,6 +9,8 @@ function FooterChat() {
                 placeholder="Aa"
                 aria-label="Aa"
                 aria-describedby="addon-wrapping"
+                value={inputText}
+                onChange={handleChangeTyping}
             />
             <i className="bi bi-arrow-up-square"></i>
         </div>
