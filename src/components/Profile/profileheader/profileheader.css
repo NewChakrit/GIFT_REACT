@@ -1,81 +1,81 @@
 .coverImg {
-    margin-top: 95px;
-    height: 200px;
-    width: 390px;
-    object-fit: cover;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+  margin-top: 95px;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 }
 
 .profileHeader {
-    top: 100px;
-    border-bottom: 1px solid #fce7d0;
+  top: 100px;
+  border-bottom: 1px solid #fce7d0;
 }
 
 .profileImg {
-    height: 100px;
-    width: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    position: absolute;
-    top: 260px;
-    left: 30px;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 260px;
+  left: 30px;
 }
 
 .topProfileDetail {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .editProfile {
-    padding-top: 20px;
-    padding-left: 150px;
+  padding-top: 20px;
+  padding-left: 150px;
 }
 
 .editProfile > button {
-    border: 1px solid #f898a4;
-    border-radius: 8px;
-    margin: 0 7px;
-    color: #f898a4;
+  border: 1px solid #f898a4;
+  border-radius: 8px;
+  margin: 0 7px;
+  color: #f898a4;
 }
 
 .username {
-    font-size: 2rem;
-    color: #f898a4;
-    padding: 10px 30px;
+  font-size: 2rem;
+  color: #f898a4;
+  padding: 10px 30px;
 }
 
 .aboutme {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 22px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 22px 10px;
 }
 
 .aboutme > button {
-    border: 1px solid #f898a4;
-    border-radius: 8px;
-    margin: 0 7px;
-    color: #ffffff;
-    background-color: none;
+  border: 1px solid #f898a4;
+  border-radius: 8px;
+  margin: 0 7px;
+  color: #ffffff;
+  background-color: none;
 }
 
 .caption {
-    border-top: 1px solid #fce7d0;
-    border-bottom: 1px solid #fce7d0;
-    width: 90%;
-    color: #f898a4;
-    padding: 10px 10px 10px 0;
-    /* text-decoration: underline; */
+  border-top: 1px solid #fce7d0;
+  border-bottom: 1px solid #fce7d0;
+  width: 90%;
+  color: #f898a4;
+  padding: 10px 10px 10px 0;
+  /* text-decoration: underline; */
 }
 
 .tabButton {
-    display: inline-block;
-    border-bottom: 3px solid #f898a4;
-    width: 100px;
-    text-align: center;
-    margin-left: 30px;
-    padding: 10px 20px 5px;
-    color: #f898a4;
-    font-size: 1.2rem;
+  display: inline-block;
+  border-bottom: 3px solid #f898a4;
+  width: 100px;
+  text-align: center;
+  margin-left: 30px;
+  padding: 10px 20px 5px;
+  color: #f898a4;
+  font-size: 1.2rem;
 }
