@@ -45,6 +45,8 @@ function Header() {
             <h2 className="header-profile">{usernameHeader}</h2>
           ) : location.pathname === "/messenger" ? (
             <h2 className="header-profile">message</h2>
+          ) : location.pathname === "/search" ? (
+            <h2 className="header-profile">Map</h2>
           ) : (
             <></>
           )}

@@ -18,7 +18,7 @@ function Footer() {
                         <i className="bi bi-gift"></i>
                     </div>
                 </Link>
-                <Link to="/">
+                <Link to="/search">
                     <div className="logo map">
                         <i className="bi bi-geo-alt"></i>
                     </div>
