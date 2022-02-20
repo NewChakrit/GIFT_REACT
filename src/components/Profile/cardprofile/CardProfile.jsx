@@ -112,15 +112,17 @@ function CardProfile({ item }) {
                     ) : (
                         <p className="cardLocation">
                             {distance > 1000
-                                ? (distance / 1000).toFixed(1) + ' ' + 'km'
-                                : distance + ' ' + 'm'}{' '}
+                                ? (distance / 1000).toFixed(1) + 'km'
+                                : distance + 'm'}{' '}
                             | {timeSince(otherUserData.About.updatedAt)}
                         </p>
                     )}
                 </div>
                 <div className="cardProfileCaption">
-                    {item?.About?.caption?.length > 20
-                        ? item?.About?.caption?.slice(0, 20) + '...'
+                    {item?.About?.caption?.length
+                        ? item?.About?.caption?.length > 20
+                            ? item?.About?.caption?.slice(0, 20) + '...'
+                            : item?.About?.caption
                         : item?.About?.caption}
                 </div>
             </div>

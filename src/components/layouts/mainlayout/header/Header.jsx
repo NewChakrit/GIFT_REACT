@@ -29,9 +29,19 @@ function Header() {
             <div className="main-header fixed-top">
                 <div
                     className="header-left"
-                    onClick={() => navigate('/messenger')}
+                    onClick={() =>
+                        navigate(
+                            location.pathname.includes('/messenger/')
+                                ? '/messenger'
+                                : '/'
+                        )
+                    }
                 >
                     {location.pathname.includes('/messenger/') ? (
+                        <h2 className="header-profile">
+                            <i className="bi bi-arrow-left"></i>
+                        </h2>
+                    ) : location.pathname.includes('/profile/') ? (
                         <h2 className="header-profile">
                             <i className="bi bi-arrow-left"></i>
                         </h2>

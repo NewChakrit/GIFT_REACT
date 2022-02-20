@@ -53,7 +53,7 @@ function Conversation({ room }) {
                     </div>
                 </div>
                 <div className="cardProfileCaption" style={{ width: '50vw' }}>
-                    {room.message.length > 20
+                    {room?.message?.length > 20
                         ? room.message.slice(0, 20) + '...'
                         : room.message}
                 </div>
