@@ -11,12 +11,10 @@ function Conversation({ room }) {
 
     const handleClickDeleteChat = async () => {
         try {
-            console.log(room);
             await axios.delete(`/chat/${room.roomId}`);
             const newChatRoom = chatRoom.filter(
                 (item) => item.roomId !== room.roomId
             );
-
             setChatRoom(newChatRoom);
         } catch (e) {
             console.log(e);

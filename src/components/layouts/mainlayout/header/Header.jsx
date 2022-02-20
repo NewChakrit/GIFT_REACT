@@ -7,6 +7,7 @@ import { AuthContext } from '../../../../contexts/AuthContext';
 import axios from '../../../../config/axios';
 import { useState } from 'react';
 import { ChatContext } from '../../../../contexts/ChatContext';
+import FilterForm from '../../../filterform/FilterForm';
 
 function Header() {
     const { user } = useContext(AuthContext);
@@ -66,7 +67,11 @@ function Header() {
                 </div>
                 <div className="header-right">
                     {location.pathname === '/' ? (
-                        <button className="btn">
+                        <button
+                            className="btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#FilterModal"
+                        >
                             <i className="bi bi-sliders2"></i>
                         </button>
                     ) : location.pathname.includes('/profile') ? (
@@ -96,6 +101,7 @@ function Header() {
                 </div>
             </div>
             <LogOutForm />
+            <FilterForm />
         </>
     );
 }

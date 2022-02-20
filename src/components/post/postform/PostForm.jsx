@@ -1,5 +1,6 @@
 import axios from '../../../config/axios';
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
+import Skeleton from '@mui/material/Skeleton';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { PostContext } from '../../../contexts/PostContext';
 import './postform.css';
@@ -8,6 +9,7 @@ function PostForm() {
     const { addPost, title, setTitle, picture, setPicture } =
         useContext(PostContext);
     const { loading, setLoading } = useContext(AuthContext);
+    const inputEl = useRef();
 
     const handleSubmitPost = (e) => {
         e.preventDefault();
@@ -64,7 +66,14 @@ function PostForm() {
                             </h5>
                         </div>
                         <div className="modal-body">
-                            {picture ? (
+                            {loading ? (
+                                <Skeleton
+                                    className="previewpostphoto"
+                                    variant="rectangular"
+                                    width={340}
+                                    height={263}
+                                />
+                            ) : picture && !loading ? (
                                 <div className="previewpostphoto d-flex">
                                     <img
                                         src={picture}
@@ -80,7 +89,20 @@ function PostForm() {
                                     </button>
                                 </div>
                             ) : (
-                                <></>
+                                <>
+                                    <label
+                                        htmlFor="postFile"
+                                        className="form-label"
+                                    >
+                                        Select your photo :
+                                    </label>
+                                    <img
+                                        src="https://res.cloudinary.com/dbtlgaii3/image/upload/v1645373932/Placeholder_view_vector_yxqu8m.svg"
+                                        alt=""
+                                        className="previewpostphoto"
+                                        onClick={() => inputEl.current.click()}
+                                    />
+                                </>
                             )}
                             <div className="mb-2">
                                 <label
@@ -97,16 +119,11 @@ function PostForm() {
                                 ></textarea>
                             </div>
                             <div className="mb-3">
-                                <label
-                                    htmlFor="postFile"
-                                    className="form-label"
-                                >
-                                    Select your photo :
-                                </label>
                                 <input
-                                    className="form-control"
+                                    className="form-control d-none"
                                     type="file"
                                     id="postFile"
+                                    ref={inputEl}
                                     onChange={handleFileInputChange}
                                 />
                             </div>

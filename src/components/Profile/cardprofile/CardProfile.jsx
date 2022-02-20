@@ -8,6 +8,7 @@ import './cardprofile.css';
 
 function CardProfile({ item }) {
     const { user } = useContext(AuthContext);
+
     const [myUserData, setMyUserData] = useState(null);
     const [otherUserData, setOtherUserData] = useState(null);
     const [distance, setDistance] = useState(null);

@@ -6,7 +6,8 @@ import { UserContext } from '../../contexts/UserContext';
 import './home.css';
 
 function Home() {
-    const { userData } = useContext(UserContext);
+    const { userData, value, selectGender, isFilter } = useContext(UserContext);
+    const [filteredUser, setFilteredUser] = useState([]);
     const [allUserData, setAllUserData] = useState([]);
 
     useEffect(() => {
@@ -17,9 +18,19 @@ function Home() {
         fetchAllUser(userData.id);
     }, []);
 
+    useEffect(() => {
+        const filteredUser = allUserData.filter(
+            (user) =>
+                user.About.age > value[0] &&
+                user.About.age < value[1] &&
+                user.About.gender === selectGender
+        );
+        setFilteredUser(filteredUser);
+    }, [value, selectGender]);
+
     return (
         <div className="homePage">
-            {allUserData.map((item) => {
+            {(isFilter ? filteredUser : allUserData).map((item) => {
                 return <CardProfile item={item} key={item.id} />;
             })}
         </div>

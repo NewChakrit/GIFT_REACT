@@ -10,6 +10,9 @@ const UserContext = createContext();
 function UserContextProvider(props) {
     const [userData, setUserData] = useState('');
     const [socket, setSocket] = useState(null);
+    const [value, setValue] = useState([]);
+    const [selectGender, setSelectGender] = useState('');
+    const [isFilter, setIsFilter] = useState(false);
 
     // Get data profile
     const token = localStorage.getItem('token');
@@ -42,6 +45,12 @@ function UserContextProvider(props) {
                 fetchUser,
                 socket,
                 setSocket,
+                value,
+                setValue,
+                selectGender,
+                setSelectGender,
+                isFilter,
+                setIsFilter,
             }}
         >
             {props.children}

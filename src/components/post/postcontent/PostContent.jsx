@@ -2,13 +2,13 @@ import axios from '../../../config/axios';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import Skeleton from '@mui/material/Skeleton';
 import { PostContext } from '../../../contexts/PostContext';
 import './postcontent.css';
 import { AuthContext } from '../../../contexts/AuthContext';
 
-function PostContent({ item, likePost, unLikePost, isLike, setIsLike }) {
-    const { deletePost, showEdit, setShowEdit, updatePost } =
-        useContext(PostContext);
+function PostContent({ item, likePost, unLikePost, isLike }) {
+    const { showEdit, setShowEdit, updatePost } = useContext(PostContext);
     const { loading, setLoading, user } = useContext(AuthContext);
     const [editText, setEditText] = useState(item.caption);
     const [editPicture, setEditPicture] = useState(item.pictureUrl);
@@ -75,7 +75,6 @@ function PostContent({ item, likePost, unLikePost, isLike, setIsLike }) {
                                         aria-label="Close"
                                         data-bs-toggle="modal"
                                         data-bs-target={`#DeletePostModal${item.id}`}
-                                        // onClick={() => deletePost(item.id)}
                                     >
                                         Delete
                                     </button>
@@ -102,14 +101,12 @@ function PostContent({ item, likePost, unLikePost, isLike, setIsLike }) {
                                     {editPicture ? (
                                         <div className="previewpostphoto d-flex justify-content-center">
                                             {loading ? (
-                                                <div
-                                                    className="spinner-border text-info"
-                                                    role="status"
-                                                >
-                                                    <span className="visually-hidden">
-                                                        Loading...
-                                                    </span>
-                                                </div>
+                                                <Skeleton
+                                                    className="previewpostphoto"
+                                                    variant="rectangular"
+                                                    width={340}
+                                                    height={263}
+                                                />
                                             ) : (
                                                 <img
                                                     src={editPicture}
