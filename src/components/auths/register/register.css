@@ -175,3 +175,8 @@ select > option:focus {
     border: 1px solid #e94057;
     border-radius: 10px;
 }
+
+.inputRegister::placeholder {
+    color: #dc3545;
+    opacity: 1;
+}

@@ -31,6 +31,8 @@ function Register() {
         loading,
         setLoading,
         handleSubmitRegister,
+        ageRegister,
+        setAgeRegister,
     } = useContext(AuthContext);
     const inputEl = useRef();
 
@@ -159,7 +161,7 @@ function Register() {
                             data-bs-toggle="modal"
                             data-bs-target="#GenderModal"
                         >
-                            Gender
+                            Gender & Age
                         </button>
                         <div
                             className="modal fade"
@@ -200,9 +202,12 @@ function Register() {
                                                 fontSize: '3rem',
                                             }}
                                         >
-                                            I am a
+                                            I am
                                         </div>
 
+                                        <label className="col-form-label postTitle">
+                                            Gender :
+                                        </label>
                                         <div className="radioGroup">
                                             <div className="woman">
                                                 <input
@@ -269,6 +274,29 @@ function Register() {
                                                 </label>
                                             </div>
                                         </div>
+
+                                        {/* Age */}
+                                        <label
+                                            htmlFor="ageInputRegister"
+                                            className="col-form-label postTitle"
+                                        >
+                                            Age :
+                                        </label>
+                                        <input
+                                            type="text"
+                                            className="form-control inputRegister"
+                                            placeholder="Input your age"
+                                            style={{
+                                                border: '1px solid #dc3545',
+                                                height: '58px',
+                                                borderRadius: '15px',
+                                            }}
+                                            id="ageInputRegister"
+                                            value={ageRegister}
+                                            onChange={(e) =>
+                                                setAgeRegister(e.target.value)
+                                            }
+                                        />
 
                                         <button
                                             type="button"
