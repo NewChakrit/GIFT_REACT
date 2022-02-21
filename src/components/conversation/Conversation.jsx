@@ -4,10 +4,12 @@ import './Conversation.css';
 import { useContext } from 'react';
 import { ChatContext } from '../../contexts/ChatContext';
 import axios from '../../config/axios';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Conversation({ room }) {
     const navigate = useNavigate();
     const { toggledelete, chatRoom, setChatRoom } = useContext(ChatContext);
+    const { user } = useContext(AuthContext);
 
     const handleClickDeleteChat = async () => {
         try {
@@ -51,6 +53,7 @@ function Conversation({ room }) {
                     </div>
                 </div>
                 <div className="cardProfileCaption" style={{ width: '50vw' }}>
+                    {room.senderId === user.id ? 'You :' : room.username + ' :'}{' '}
                     {room?.message?.length > 20
                         ? room.message.slice(0, 20) + '...'
                         : room.message}
