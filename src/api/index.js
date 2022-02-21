@@ -1,4 +1,5 @@
 import axios from 'axios';
+// require('dotenv').config();
 
 export const getPlacesData = async (type, sw, ne) => {
     try {
@@ -14,7 +15,7 @@ export const getPlacesData = async (type, sw, ne) => {
                     tr_longitude: ne.lng,
                 },
                 headers: {
-                    'x-rapidapi-key': 'API Key',
+                    'x-rapidapi-key': 'key',
                     'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
                 },
             }

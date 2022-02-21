@@ -5,6 +5,7 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles';
+// require('dotenv').config();
 
 function Map({
     setCoordinates,
@@ -20,7 +21,7 @@ function Map({
         <div className={classes.mapContainer}>
             <GoogleMapReact
                 bootstrapURLKeys={{
-                    key: '#Key',
+                    key: 'key',
                 }}
                 defaultCenter={coordinates}
                 center={coordinates}
