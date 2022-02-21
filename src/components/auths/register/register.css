@@ -48,51 +48,13 @@
     border-radius: 40px;
 }
 
-.placeHolderfirstName {
+.placeHolderInput {
     position: absolute;
     font-size: 1.5rem;
-    right: 65px;
-    top: 143px;
+    right: 20px;
+    top: 8px;
     color: #33a2e5;
-}
-
-.placeHolderLastName {
-    position: absolute;
-    font-size: 1.5rem;
-    right: 65px;
-    top: 218px;
-    color: #33a2e5;
-}
-
-.placeHolderUserName {
-    position: absolute;
-    font-size: 1.5rem;
-    right: 65px;
-    top: 292px;
-    color: #33a2e5;
-}
-.placeHolderEmailRegister {
-    position: absolute;
-    font-size: 1.5rem;
-    right: 65px;
-    top: 365px;
-    color: #33a2e5;
-}
-
-.placeHolderPasswordRegister {
-    position: absolute;
-    font-size: 1.5rem;
-    right: 65px;
-    top: 441px;
-    color: #33a2e5;
-}
-
-.placeHolderConfirmPassword {
-    position: absolute;
-    font-size: 1.5rem;
-    right: 65px;
-    top: 514px;
-    color: #33a2e5;
+    z-index: 99;
 }
 
 .optionsContainer {

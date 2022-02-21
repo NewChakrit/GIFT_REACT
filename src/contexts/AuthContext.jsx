@@ -33,27 +33,27 @@ function AuthContextProvider(props) {
         }
     }, []);
 
-    const handleSubmitLogin = async (e) => {
+    const handleSubmitLogin = async (isRemember) => {
         try {
-            e.preventDefault();
             const res = await axios.post('/auth/login', { email, password });
-
-            login(res.data.token);
+            login(res.data.token, isRemember);
         } catch (err) {
             console.log(err);
             setError(err.response.data.message);
             setTimeout(() => setError(''), 3000);
         }
     };
-    const login = async (token) => {
+    const login = async (token, isRemember) => {
         try {
             await localStorageService.setToken(token);
             setUser(jwtDecode(token));
             setRole('user');
             setLoginLoading(true);
             navigate('/');
-            setEmail('');
-            setPassword('');
+            if (!isRemember) {
+                setEmail('');
+                setPassword('');
+            }
         } catch (err) {
             console.log(err);
         }

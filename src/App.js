@@ -3,10 +3,12 @@ import { Toast } from 'bootstrap';
 import { useContext, useEffect, useRef } from 'react';
 import { ErrContext } from './contexts/ErrContext';
 import RouteConfig from './routes/RouteConfig';
+import { useLocation } from 'react-router-dom';
 
 function App() {
     const { error } = useContext(ErrContext);
     const toastEl = useRef();
+    const location = useLocation();
 
     useEffect(() => {
         if (error) {
@@ -22,7 +24,11 @@ function App() {
                     ref={toastEl}
                 >
                     <div className="d-flex">
-                        <div className="toast-body">{error}</div>
+                        <div className="toast-body">
+                            {location.pathname === '/'
+                                ? 'Email or Password is incorect'
+                                : 'Register fail'}
+                        </div>
 
                         <button
                             type="button"

@@ -7,6 +7,8 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import axios from '../../../config/axios';
 import Select from 'react-select';
 import { interestOption } from './docs/data';
+import { ErrContext } from '../../../contexts/ErrContext';
+import { useState } from 'react';
 
 function Register() {
     const {
@@ -34,7 +36,11 @@ function Register() {
         ageRegister,
         setAgeRegister,
     } = useContext(AuthContext);
+    const { error } = useContext(ErrContext);
     const inputEl = useRef();
+    const [showPassword, setShowPassword] = useState(false);
+
+    console.log(error);
 
     const handleFileInputChange = (e) => {
         e.preventDefault();
@@ -86,71 +92,136 @@ function Register() {
             {/* Form */}
             <div className="registerform">
                 <form className="pt-3 p-5" onSubmit={handleSubmitRegister}>
-                    <div className="mb-3 pb-2">
+                    <div className="mb-3 pb-2 position-relative">
                         <input
                             type="text"
-                            className="form-control inputLogin"
+                            className={`form-control inputLogin ${
+                                error && !firstName ? 'is-invalid' : ''
+                            }`}
                             id="firstNameInput"
                             placeholder="FirstName"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
+                            // required
                         />
-                        <i className="bi bi-person placeHolderfirstName"></i>
+                        <div className="invalid-feedback">
+                            Please choose your firstname.
+                        </div>
+                        {error && !firstName ? (
+                            <></>
+                        ) : (
+                            <i className="bi bi-person placeHolderInput"></i>
+                        )}
                     </div>
-                    <div className="mb-3 pb-2">
+                    <div className="mb-3 pb-2 position-relative">
                         <input
                             type="text"
-                            className="form-control inputLogin"
+                            className={`form-control inputLogin ${
+                                error && !lastName ? 'is-invalid' : ''
+                            }`}
                             id="lastNameInput"
                             placeholder="Last Name"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                         />
-                        <i className="bi bi-person placeHolderLastName"></i>
+                        <div className="invalid-feedback">
+                            Please choose your lastname.
+                        </div>
+                        {error && !lastName ? (
+                            <></>
+                        ) : (
+                            <i className="bi bi-person placeHolderInput"></i>
+                        )}
                     </div>
-                    <div className="mb-3 pb-2">
+                    <div className="mb-3 pb-2 position-relative">
                         <input
                             type="text"
-                            className="form-control inputLogin"
+                            className={`form-control inputLogin ${
+                                error && !username ? 'is-invalid' : ''
+                            }`}
                             id="userNameInput"
                             placeholder="User Name"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
-                        <i className="bi bi-person placeHolderUserName"></i>
+                        <div className="invalid-feedback">
+                            Please choose your username.
+                        </div>
+                        {error && !username ? (
+                            <></>
+                        ) : (
+                            <i className="bi bi-person placeHolderInput"></i>
+                        )}
                     </div>
-                    <div className="mb-3 pb-2">
+                    <div className="mb-3 pb-2 position-relative">
                         <input
                             type="email"
-                            className="form-control inputLogin"
+                            className={`form-control inputLogin ${
+                                error && !email ? 'is-invalid' : ''
+                            }`}
                             id="emailInputRegister"
                             placeholder="Email "
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        <i className="bi bi-envelope placeHolderEmailRegister"></i>
+                        <div className="invalid-feedback">
+                            Please choose your email.
+                        </div>
+                        {error && !email ? (
+                            <></>
+                        ) : (
+                            <i className="bi bi-envelope placeHolderInput"></i>
+                        )}
                     </div>
-                    <div className="mb-3 pb-2">
+                    <div className="mb-3 pb-2 position-relative">
                         <input
-                            type="password"
-                            className="form-control inputLogin"
+                            type={showPassword ? 'text' : 'password'}
+                            className={`form-control inputLogin ${
+                                error && !password ? 'is-invalid' : ''
+                            }`}
                             id="passwordInputRegister"
                             placeholder="Password "
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <i className="bi bi-eye-slash placeHolderPasswordRegister"></i>
+                        <div className="invalid-feedback">
+                            Please choose your password.
+                        </div>
+                        {error && !password ? (
+                            <></>
+                        ) : (
+                            <i
+                                className={`bi bi-eye${
+                                    showPassword ? '-slash' : ''
+                                } placeHolderInput`}
+                                onClick={() => setShowPassword(!showPassword)}
+                            ></i>
+                        )}
                     </div>
-                    <div className="mb-3 pb-4">
+                    <div className="mb-3 pb-4 position-relative">
                         <input
-                            type="password"
-                            className="form-control inputLogin"
+                            type={showPassword ? 'text' : 'password'}
+                            className={`form-control inputLogin ${
+                                error && !confirmPassword ? 'is-invalid' : ''
+                            }`}
                             id="confirmPasswordInput"
                             placeholder="Confirm Password "
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
-                        <i className="bi bi-eye-slash placeHolderConfirmPassword"></i>
+                        <div className="invalid-feedback">
+                            Please choose your confirm password.
+                        </div>
+                        {error && !confirmPassword ? (
+                            <></>
+                        ) : (
+                            <i
+                                className={`bi bi-eye${
+                                    showPassword ? '-slash' : ''
+                                } placeHolderInput`}
+                                onClick={() => setShowPassword(!showPassword)}
+                            ></i>
+                        )}
                     </div>
 
                     {/* Gender */}
