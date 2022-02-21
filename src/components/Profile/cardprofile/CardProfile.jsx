@@ -7,7 +7,7 @@ import timeSince from '../../../services/timeSince';
 import './cardprofile.css';
 
 function CardProfile({ item }) {
-    const { user } = useContext(AuthContext);
+    const { user, setCoverUrl } = useContext(AuthContext);
 
     const [myUserData, setMyUserData] = useState(null);
     const [otherUserData, setOtherUserData] = useState(null);
@@ -91,7 +91,10 @@ function CardProfile({ item }) {
     return (
         <div
             className="profileCard"
-            onClick={() => navigate(`/profile/${item.username}`)}
+            onClick={() => {
+                setCoverUrl('');
+                navigate(`/profile/${item.username}`);
+            }}
         >
             <div className="profileCardImg">
                 <img
