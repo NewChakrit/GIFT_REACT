@@ -31,7 +31,7 @@ function Login() {
         />
       </div>
       <div className="loginForm">
-        <form className="pt-3 p-5" onSubmit={handleSubmit}>
+        <form className="pt-3 p-5 " onSubmit={handleSubmit}>
           <div className="mb-3 pb-4 position-relative">
             <input
               type="email"
