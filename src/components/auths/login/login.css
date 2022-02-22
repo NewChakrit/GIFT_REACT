@@ -1,87 +1,88 @@
 .login {
-  padding-top: 40px;
-  background-image: url("https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg");
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
+    padding-top: 40px;
+    background-image: url('https://i.pinimg.com/236x/81/4b/c3/814bc34f5fde1b40f74baf60220349ee.jpg');
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
 }
 
 .logo {
-  text-align: center;
+    text-align: center;
+    height: 30vh !important;
 }
 .logo > img {
-  width: 70vw;
-  height: auto;
+    width: 70vw;
+    height: auto;
 }
 
 .loginForm {
-  margin-top: 10px;
-  padding-top: 20px;
-  bottom: 140px;
-  position: fixed;
-  z-index: 4;
-  width: 100%;
+    margin-top: 10px;
+    padding-top: 20px;
+    /* bottom: 140px; */
+    position: relative;
+    z-index: 4;
+    width: 100%;
 }
 
 .loginButton {
-  background-color: #fa8ba4;
-  border-radius: 10px;
-  color: #ffffff;
-  width: 100%;
-  padding: 10px 0;
-  box-shadow: 0px 8px 14px -2px grey;
+    background-color: #fa8ba4;
+    border-radius: 10px;
+    color: #ffffff;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0px 8px 14px -2px grey;
 }
 
 .inputLogin {
-  height: 50px;
-  border-radius: 10px;
+    height: 50px;
+    border-radius: 10px;
 }
 
 .placeHolderEmail {
-  position: absolute;
-  font-size: 1.5rem;
-  right: 65px;
-  top: 45px;
-  color: #33a2e5;
+    position: absolute;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 45px;
+    color: #33a2e5;
 }
 
 .placeHolderPassword {
-  position: fixed;
-  font-size: 1.5rem;
-  right: 65px;
-  top: 425px;
-  color: #33a2e5;
+    position: fixed;
+    font-size: 1.5rem;
+    right: 65px;
+    top: 425px;
+    color: #33a2e5;
 }
 
 .rememberme {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 .form-control::placeholder {
-  color: #33a2e5;
-  opacity: 1;
+    color: #33a2e5;
+    opacity: 1;
 }
 
 .signUpLink {
-  padding-top: 20px;
-  text-align: center;
+    padding-top: 20px;
+    text-align: center;
 }
 
 .signUpLink > a {
-  text-decoration: none;
-  color: #fa8ba4;
+    text-decoration: none;
+    color: #fa8ba4;
 }
 
 a:hover {
-  color: #33a2e5;
+    color: #33a2e5;
 }
 
 .sparkle {
-  position: fixed;
-  z-index: 90;
-  top: 0px;
-  right: 0px;
-  width: 500px !important;
-  height: 338px !important;
+    position: fixed;
+    z-index: 90;
+    top: 0px;
+    right: 0px;
+    width: 500px !important;
+    height: 30vh !important;
 }
