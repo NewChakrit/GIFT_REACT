@@ -18,10 +18,12 @@
 .loginForm {
   margin-top: 10px;
   padding-top: 20px;
-  bottom: 200px;
+  bottom: 140px;
   position: fixed;
+  z-index: 4;
   width: 100%;
 }
+
 .loginButton {
   background-color: #fa8ba4;
   border-radius: 10px;
