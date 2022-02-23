@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { ErrContext } from "../../../contexts/ErrContext";
+import { motion } from "framer-motion";
 import "./login.css";
 
 function Login() {
@@ -17,19 +18,41 @@ function Login() {
     handleSubmitLogin(isRemember);
   };
 
+  const icon = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        ease: [0.6, 0.01, -0.5, 0.95],
+        duration: 2,
+      },
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 2,
+      },
+    },
+  };
+
   return (
     <div className="login">
-      <div className="logo">
+      <motion.div
+        className="logo"
+        variants={icon}
+        initial="hidden"
+        animate="show"
+      >
         <img
           src="https://res.cloudinary.com/do58tgs2e/image/upload/v1645345853/gift_plmqmv.png"
           alt="Logo"
-        />
-        <img
-          className="sparkle"
-          //   src="https://media.giphy.com/media/WNwLx0skSQOPCgbxNL/giphy.gif"
-          src="https://media.giphy.com/media/Y4hQj1h0eVbE3rIInW/giphy.gif"
-        />
-      </div>
+        ></img>
+      </motion.div>
+      {/* sparkle */}
+      <img
+        className="sparkle"
+        //   src="https://media.giphy.com/media/WNwLx0skSQOPCgbxNL/giphy.gif"
+        src="https://media.giphy.com/media/Y4hQj1h0eVbE3rIInW/giphy.gif"
+      />
       <div className="loginForm">
         <form className="pt-3 p-5 " onSubmit={handleSubmit}>
           <div className="mb-3 pb-4 position-relative">
