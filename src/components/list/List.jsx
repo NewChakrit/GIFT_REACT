@@ -27,9 +27,12 @@ function List({
     const [elRefs, setElRefs] = useState([]);
 
     useEffect(() => {
+        //สร้าง array ที่มีจำนวนค่าว่างเท่ากับ length ของ places
         const refs = Array(places?.length)
             .fill()
             .map((_, i) => elRefs[i] || createRef());
+        // refs เป็น array
+
         setElRefs(refs);
     }, [places]);
 

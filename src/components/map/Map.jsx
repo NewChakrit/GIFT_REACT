@@ -21,7 +21,7 @@ function Map({
         <div className={classes.mapContainer}>
             <GoogleMapReact
                 bootstrapURLKeys={{
-                    key: 'key',
+                    key: 'AIzaSyDZ9U99HeN3k2coixR7wvA0Lg05b8-eCLE',
                 }}
                 defaultCenter={coordinates}
                 center={coordinates}
