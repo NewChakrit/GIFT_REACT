@@ -15,7 +15,7 @@ function UserContextProvider(props) {
     const [isFilter, setIsFilter] = useState(false);
 
     // Get data profile
-    const token = localStorage.getItem('token');
+    const token = localStorageService.getToken('token');
     const fetchUser = async (tokenInput) => {
         const a = jwtDecode(token || tokenInput);
         const res = await axios.get(`/user/${a.username}`);
